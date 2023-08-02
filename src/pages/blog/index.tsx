@@ -1,9 +1,9 @@
-import Content from '@lib/content'
-import { Post as PostType } from '@lib/types'
+import { Blog } from '@lib/blog'
+import { type PostMetadata } from '@lib/types'
 import Link from 'next/link'
 
 type Props = {
-  allPosts: Omit<PostType, 'content'>[]
+  allPosts: PostMetadata[]
 }
 
 export default function BlogPage({ allPosts }: Props) {
@@ -11,7 +11,10 @@ export default function BlogPage({ allPosts }: Props) {
     <>
       {allPosts.map(post => (
         <Link key={post.slug} href={`/blog/${post.slug}`}>
-          <h1>{post.title}</h1>
+          <div className='mt-3 flex flex-col'>
+            <h1>{post.title}</h1>
+            <p>{post.date}</p>
+          </div>
         </Link>
       ))}
     </>
@@ -19,16 +22,7 @@ export default function BlogPage({ allPosts }: Props) {
 }
 
 export async function getStaticProps() {
-  const allPosts = new Content('blog')
-    .getAll(['slug', 'title', 'date', 'excerpt', 'keywords'])
-    .map(data => ({
-      slug: data.slug,
-      title: data.title ?? data.slug,
-      date: (data.date ?? new Date('2023:01:01')).toString(),
-      excerpt: data.excerpt ?? '',
-      keywords: data.keywords ?? ''
-    }))
-
+  const allPosts = new Blog().getPosts()
   return {
     props: { allPosts }
   }

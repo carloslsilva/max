@@ -4,6 +4,6 @@ export type Project = {
   cover?: string
   github?: string
   preview?: string
-  tools?: string[]
+  tools: string[]
   pinned: boolean
 }

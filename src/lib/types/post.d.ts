@@ -6,3 +6,5 @@ export type Post = {
   keywords: string
   content: string
 }
+
+export type PostMetadata = Omit<Post, 'content'>

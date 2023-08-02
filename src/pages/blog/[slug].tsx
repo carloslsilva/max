@@ -1,6 +1,7 @@
-import Content from '@lib/content'
+import { Blog } from '@lib/blog'
 import { type Post as PostType } from '@lib/types'
 import ErrorPage from 'next/error'
+import Link from 'next/link'
 import { useRouter } from 'next/router'
 import ReactMarkdown from 'react-markdown'
 
@@ -10,8 +11,6 @@ type Props = {
 
 export default function PostPage({ post }: Props) {
   const router = useRouter()
-  const title = `${post.title} | Next.js Blog Example with MARKDOWN`
-
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />
   } else if (router.isFallback) {
@@ -19,10 +18,13 @@ export default function PostPage({ post }: Props) {
   } else {
     return (
       <>
-        <h1>{title}</h1>
-        <article className='mx-auto prose prose-lg'>
-          <ReactMarkdown>{post.content}</ReactMarkdown>
-        </article>
+        <main className='container mx-auto'>
+          <article className='prose prose-lg mx-auto'>
+            <h1>{post.title}</h1>
+            <ReactMarkdown>{post.content}</ReactMarkdown>
+          </article>
+        </main>
+        <Link href={'/blog'}>Back</Link>
       </>
     )
   }
@@ -35,32 +37,20 @@ type Params = {
 }
 
 export async function getStaticProps({ params }: Params) {
-  const data = new Content('blog').getBySlug(params.slug, [
-    'slug',
-    'title',
-    'date',
-    'excerpt',
-    'keywords'
-  ])
-
+  const post = new Blog().getPost(params.slug)
   return {
     props: {
-      post: {
-        slug: data.slug,
-        title: data.title ?? data.slug,
-        date: (data.date ?? new Date('2023:01:01')).toString(),
-        excerpt: data.excerpt ?? '',
-        keywords: data.keywords ?? ''
-      }
+      post
     }
   }
 }
 
 export async function getStaticPaths() {
-  const paths = new Content('blog').getAll(['slug']).map(post => ({
-    params: { slug: post.slug }
+  const paths = new Blog().getSlugs().map(slug => ({
+    params: {
+      slug
+    }
   }))
-
   return {
     paths,
     fallback: false
