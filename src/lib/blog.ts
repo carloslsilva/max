@@ -1,5 +1,5 @@
-import { Content } from '@lib/content'
-import { type Post, type PostMetadata } from '@lib/types'
+import { Content } from './content'
+import { type Post, type PostMetadata } from './types'
 
 export class Blog {
   constructor() {
@@ -42,7 +42,7 @@ export class Blog {
     return {
       slug: data.slug,
       title: data.title ?? data.slug,
-      date: (data.date ?? new Date('2023:01:01')).toString(),
+      date: data.date ?? '2023:01:01',
       excerpt: data.excerpt ?? '',
       keywords: data.keywords ?? ''
     }

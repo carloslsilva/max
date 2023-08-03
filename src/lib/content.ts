@@ -1,14 +1,15 @@
 import fs from 'fs'
 import matter from 'gray-matter'
 import path from 'path'
+import { dateToString } from './utils'
 
 export class Content {
-  constructor(contentDirectrory: string) {
+  constructor(contentDirectory: string) {
     this.contentDirectory = path.join(
       process.cwd(),
       'src',
       'content',
-      contentDirectrory
+      contentDirectory
     )
   }
 
@@ -36,7 +37,7 @@ export class Content {
       }
       if (typeof data[field] !== 'undefined') {
         if (data[field] instanceof Date) {
-          request[field] = data[field].toISOString().slice(0, 19)
+          request[field] = dateToString(data[field])
         } else {
           request[field] = data[field]
         }
