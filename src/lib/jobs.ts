@@ -10,6 +10,7 @@ export class Jobs {
   getAll(): Job[] {
     const allJobs = this.jobs
       .getAll([
+        'slug',
         'title',
         'company',
         'location',
@@ -18,7 +19,7 @@ export class Jobs {
         'content'
       ])
       .map(job => ({
-        title: job.title || '',
+        title: job.title || job.slug,
         company: job.company || '',
         location: job.location || '',
         startDate: dateToString(new Date(job.startDate ?? null)),
