@@ -7,7 +7,7 @@ export class Jobs {
     this.jobs = new Content('jobs')
   }
 
-  getAll(): Job[] {
+  async getAll(): Promise<Job[]> {
     const allJobs = this.jobs
       .getAll([
         'slug',

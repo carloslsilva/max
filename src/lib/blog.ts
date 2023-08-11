@@ -6,12 +6,12 @@ export class Blog {
     this.blog = new Content('blog')
   }
 
-  getSlugs(): string[] {
+  async getSlugs(): Promise<string[]> {
     const slugs = this.blog.getAll(['slug']).map(post => post.slug)
     return slugs
   }
 
-  getPosts(): PostMetadata[] {
+  async getPosts(): Promise<PostMetadata[]> {
     const posts = this.blog
       .getAll(['slug', 'title', 'date', 'excerpt', 'keywords'])
       .map(data => this.validate(data))
@@ -20,7 +20,7 @@ export class Blog {
     return posts
   }
 
-  getPost(slug: string): Post {
+  async getPost(slug: string): Promise<Post> {
     const data = this.blog.getBySlug(slug, [
       'slug',
       'title',

@@ -22,7 +22,8 @@ export default function BlogPage({ allPosts }: Props) {
 }
 
 export async function getStaticProps() {
-  const allPosts = new Blog().getPosts()
+  const blog = new Blog()
+  const allPosts = await blog.getPosts()
   return {
     props: { allPosts }
   }

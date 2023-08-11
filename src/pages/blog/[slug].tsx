@@ -37,7 +37,8 @@ type Params = {
 }
 
 export async function getStaticProps({ params }: Params) {
-  const post = new Blog().getPost(params.slug)
+  const blog = new Blog()
+  const post = await blog.getPost(params.slug)
   return {
     props: {
       post
@@ -46,7 +47,9 @@ export async function getStaticProps({ params }: Params) {
 }
 
 export async function getStaticPaths() {
-  const paths = new Blog().getSlugs().map(slug => ({
+  const blog = new Blog()
+  const slugs = await blog.getSlugs()
+  const paths = slugs.map(slug => ({
     params: {
       slug
     }
