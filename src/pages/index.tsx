@@ -17,7 +17,7 @@ export default function HomePage({ jobs }: Props) {
   return (
     <>
       {jobs.map(job => (
-        <div key={job.title} className='mt-3 flex flex-col'>
+        <div key={job.title} className='mt-3 flex flex-col pt-4'>
           <h1>{job.title}</h1>
           <h2>{job.company}</h2>
           <p>{job.location}</p>

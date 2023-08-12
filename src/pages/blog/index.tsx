@@ -3,7 +3,8 @@ import { type PostMetadata } from '@lib/types'
 import Link from 'next/link'
 
 export async function getStaticProps() {
-  const posts = await new Blog().getPosts()
+  const blog = new Blog()
+  const posts = await blog.getPosts()
   return {
     props: { posts }
   }

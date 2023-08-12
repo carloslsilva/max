@@ -6,7 +6,8 @@ import { useRouter } from 'next/router'
 import ReactMarkdown from 'react-markdown'
 
 export async function getStaticPaths() {
-  const slugs = await new Blog().getSlugs()
+  const blog = new Blog()
+  const slugs = await blog.getSlugs()
   const paths = slugs.map(slug => ({
     params: {
       slug
@@ -25,7 +26,8 @@ type Params = {
 }
 
 export async function getStaticProps({ params }: Params) {
-  const post = await new Blog().getPost(params.slug)
+  const blog = new Blog()
+  const post = await blog.getPost(params.slug)
   return {
     props: {
       post
