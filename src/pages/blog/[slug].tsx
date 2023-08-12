@@ -5,6 +5,34 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import ReactMarkdown from 'react-markdown'
 
+export async function getStaticPaths() {
+  const slugs = await new Blog().getSlugs()
+  const paths = slugs.map(slug => ({
+    params: {
+      slug
+    }
+  }))
+  return {
+    paths,
+    fallback: false
+  }
+}
+
+type Params = {
+  params: {
+    slug: string
+  }
+}
+
+export async function getStaticProps({ params }: Params) {
+  const post = await new Blog().getPost(params.slug)
+  return {
+    props: {
+      post
+    }
+  }
+}
+
 type Props = {
   post: PostType
 }
@@ -27,35 +55,5 @@ export default function PostPage({ post }: Props) {
         <Link href={'/blog'}>Back</Link>
       </>
     )
-  }
-}
-
-type Params = {
-  params: {
-    slug: string
-  }
-}
-
-export async function getStaticProps({ params }: Params) {
-  const blog = new Blog()
-  const post = await blog.getPost(params.slug)
-  return {
-    props: {
-      post
-    }
-  }
-}
-
-export async function getStaticPaths() {
-  const blog = new Blog()
-  const slugs = await blog.getSlugs()
-  const paths = slugs.map(slug => ({
-    params: {
-      slug
-    }
-  }))
-  return {
-    paths,
-    fallback: false
   }
 }

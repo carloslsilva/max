@@ -2,14 +2,21 @@ import { Jobs } from '@lib/jobs'
 import { type Job } from '@lib/types'
 import ReactMarkdown from 'react-markdown'
 
-type Props = {
-  allJobs: Job[]
+export async function getStaticProps() {
+  const jobs = await new Jobs().getAll()
+  return {
+    props: { jobs }
+  }
 }
 
-export default function HomePage(props: Props) {
+type Props = {
+  jobs: Job[]
+}
+
+export default function HomePage({ jobs }: Props) {
   return (
     <>
-      {props.allJobs.map(job => (
+      {jobs.map(job => (
         <div key={job.title} className='mt-3 flex flex-col'>
           <h1>{job.title}</h1>
           <h2>{job.company}</h2>
@@ -19,12 +26,4 @@ export default function HomePage(props: Props) {
       ))}
     </>
   )
-}
-
-export async function getStaticProps() {
-  const jobs = new Jobs()
-  const allJobs = await jobs.getAll()
-  return {
-    props: { allJobs }
-  }
 }

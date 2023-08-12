@@ -2,14 +2,21 @@ import { Blog } from '@lib/blog'
 import { type PostMetadata } from '@lib/types'
 import Link from 'next/link'
 
-type Props = {
-  allPosts: PostMetadata[]
+export async function getStaticProps() {
+  const posts = await new Blog().getPosts()
+  return {
+    props: { posts }
+  }
 }
 
-export default function BlogPage({ allPosts }: Props) {
+type Props = {
+  posts: PostMetadata[]
+}
+
+export default function BlogPage({ posts }: Props) {
   return (
     <>
-      {allPosts.map(post => (
+      {posts.map(post => (
         <Link key={post.slug} href={`/blog/${post.slug}`}>
           <div className='mt-3 flex flex-col'>
             <h1>{post.title}</h1>
@@ -19,12 +26,4 @@ export default function BlogPage({ allPosts }: Props) {
       ))}
     </>
   )
-}
-
-export async function getStaticProps() {
-  const blog = new Blog()
-  const allPosts = await blog.getPosts()
-  return {
-    props: { allPosts }
-  }
 }
