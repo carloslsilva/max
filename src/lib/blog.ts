@@ -42,7 +42,7 @@ export class Blog {
     return {
       slug: data.slug,
       title: data.title ?? data.slug,
-      date: data.date ?? '2023:01:01',
+      date: new Date(data.date ?? null).toISOString(),
       excerpt: data.excerpt ?? '',
       keywords: data.keywords ?? ''
     }

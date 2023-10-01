@@ -1,7 +1,6 @@
 import fs from 'fs'
 import matter from 'gray-matter'
 import path from 'path'
-import { dateToString } from './utils'
 
 export class Content {
   constructor(contentDirectory: string) {
@@ -25,7 +24,7 @@ export class Content {
     const { data, content } = matter(fileContents)
 
     const request: {
-      [key: string]: string
+      [key: string]: any
     } = {}
 
     fields.forEach(field => {
@@ -36,11 +35,7 @@ export class Content {
         request[field] = content
       }
       if (typeof data[field] !== 'undefined') {
-        if (data[field] instanceof Date) {
-          request[field] = dateToString(data[field])
-        } else {
-          request[field] = data[field]
-        }
+        request[field] = data[field]
       }
     })
 

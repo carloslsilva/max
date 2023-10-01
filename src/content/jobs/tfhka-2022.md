@@ -3,6 +3,10 @@ title: Firmware Engineer
 company: The Factory HKA
 location: Lima, Perú (Remote)
 startDate: 2022-05-01
+tech:
+  - hello ty
+  - bye
+  - test
 ---
 
 Firmware development for embedded systems used in tax solutions; tax printers, and transmission devices using C/C++.

@@ -5,4 +5,5 @@ export type Job = {
   startDate: string
   endDate: string | null
   description: string
+  tech: string[]
 }
