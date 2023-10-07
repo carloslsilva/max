@@ -54,7 +54,6 @@ export default function PostPage({ post }: Props) {
             <ReactMarkdown>{post.content}</ReactMarkdown>
           </article>
         </main>
-        <Link href={'/blog'}>Back</Link>
       </>
     )
   }
