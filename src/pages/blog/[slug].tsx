@@ -1,7 +1,6 @@
 import { Blog } from '@lib/blog'
 import { type Post as PostType } from '@lib/types'
 import ErrorPage from 'next/error'
-import Link from 'next/link'
 import { useRouter } from 'next/router'
 import ReactMarkdown from 'react-markdown'
 
