@@ -1,4 +1,5 @@
 export { Divider } from './Divider'
+export { Icon } from './Icon'
 export { Section } from './Section'
 export { Text } from './Text'
 export { Title } from './Title'
