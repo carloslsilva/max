@@ -5,7 +5,7 @@ interface Props {
 }
 
 export const Layout: FC<Props> = ({ children }) => (
-  <div className='mx-auto grid max-w-3xl grid-cols-3'>
-    <main className='col-start-1 col-end-4'>{children}</main>
-  </div>
+  <>
+    <main>{children}</main>
+  </>
 )
