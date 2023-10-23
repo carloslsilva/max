@@ -26,6 +26,11 @@ export const post = defineType({
       to: { type: 'author' }
     }),
     defineField({
+      name: 'publishedAt',
+      title: 'Published at',
+      type: 'datetime'
+    }),
+    defineField({
       name: 'coverImage',
       title: 'Cover image',
       type: 'image',
@@ -34,20 +39,15 @@ export const post = defineType({
       }
     }),
     defineField({
+      name: 'body',
+      title: 'Body',
+      type: 'markdown'
+    }),
+    defineField({
       name: 'categories',
       title: 'Categories',
       type: 'array',
       of: [{ type: 'reference', to: { type: 'category' } }]
-    }),
-    defineField({
-      name: 'publishedAt',
-      title: 'Published at',
-      type: 'datetime'
-    }),
-    defineField({
-      name: 'body',
-      title: 'Body',
-      type: 'markdown'
     })
   ],
   preview: {
