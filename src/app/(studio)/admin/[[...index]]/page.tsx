@@ -1,4 +1,4 @@
-import { Studio } from '@src/components/Studio'
+import { Studio } from '@components/Studio'
 
 // Ensures the Studio route is statically generated
 export const dynamic = 'force-static'

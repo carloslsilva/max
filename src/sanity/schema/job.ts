@@ -42,13 +42,16 @@ export const job = defineType({
       name: 'endDate',
       title: 'End Date',
       type: 'date',
-      validation: Rule =>
+      validation: Rule => [
         Rule.min(Rule.valueOfField('startDate')).error(
           'End date must greater than start date'
-        )
+        ),
+        Rule.min('2016-01-01').error('Start date must be greater than 2016 Jan')
+      ]
     }),
     defineField({
       name: 'description',
+      title: 'Description',
       type: 'markdown'
     }),
     defineField({
@@ -57,5 +60,16 @@ export const job = defineType({
       type: 'array',
       of: [{ type: 'reference', to: { type: 'skill' } }]
     })
-  ]
+  ],
+  preview: {
+    select: {
+      title: 'title',
+      subtitle: 'company',
+      date: 'starDate'
+    },
+    prepare(selection) {
+      const { title, subtitle, date } = selection
+      return { title, subtitle: `${subtitle} (${date.split('-')[0]})` }
+    }
+  }
 })

@@ -1,4 +1,4 @@
-import { Icon } from '@src/components/common'
+import { Icon } from '@components/common'
 import Link from 'next/link'
 
 export default function Home() {
