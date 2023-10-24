@@ -1,37 +1,37 @@
 import { defineField, defineType } from 'sanity'
 
 export const job = defineType({
-  name: 'job',
   title: 'Job',
+  name: 'job',
   type: 'document',
   fields: [
     defineField({
-      name: 'title',
       title: 'Title',
+      name: 'title',
       type: 'string',
       validation: Rule => [Rule.required().error('A title is required')]
     }),
     defineField({
-      name: 'company',
       title: 'Company',
+      name: 'company',
       type: 'string',
       validation: Rule => [Rule.required().error('A company is required')]
     }),
     defineField({
-      name: 'location',
       title: 'Location',
+      name: 'location',
       type: 'string',
       validation: Rule => [Rule.required().error('A location is required')]
     }),
     defineField({
-      name: 'remote',
       title: 'Remote?',
+      name: 'remote',
       type: 'boolean',
       initialValue: false
     }),
     defineField({
-      name: 'starDate',
       title: 'Start Date',
+      name: 'starDate',
       type: 'date',
       validation: Rule => [
         Rule.required().error('A start date is required'),
@@ -39,8 +39,8 @@ export const job = defineType({
       ]
     }),
     defineField({
-      name: 'endDate',
       title: 'End Date',
+      name: 'endDate',
       type: 'date',
       validation: Rule => [
         Rule.min(Rule.valueOfField('startDate')).error(
@@ -50,13 +50,13 @@ export const job = defineType({
       ]
     }),
     defineField({
-      name: 'description',
       title: 'Description',
+      name: 'description',
       type: 'markdown'
     }),
     defineField({
-      name: 'skills',
       title: 'Skills',
+      name: 'skills',
       type: 'array',
       of: [{ type: 'reference', to: { type: 'skill' } }]
     })

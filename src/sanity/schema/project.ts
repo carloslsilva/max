@@ -1,54 +1,49 @@
 import { defineField, defineType } from 'sanity'
 
 export const project = defineType({
-  name: 'project',
   title: 'Project',
+  name: 'project',
   type: 'document',
   fields: [
     defineField({
-      name: 'title',
       title: 'Title',
+      name: 'title',
       type: 'string',
       validation: Rule => [Rule.required().error('A title is required')]
     }),
     defineField({
-      name: 'coverImage',
       title: 'Cover Image',
+      name: 'coverImage',
       type: 'image',
       options: {
         hotspot: true
       }
     }),
     defineField({
-      name: 'githubUrl',
+      title: 'Pinned?',
+      name: 'pinned',
+      type: 'boolean',
+      initialValue: false
+    }),
+    defineField({
       title: 'Github URL',
+      name: 'githubUrl',
       type: 'url'
     }),
     defineField({
-      name: 'externalUrl',
       title: 'External URL',
+      name: 'externalUrl',
       type: 'url'
     }),
     defineField({
-      name: 'description',
       title: 'Description',
+      name: 'description',
       type: 'markdown',
       validation: Rule => Rule.required().error('Description is required')
     }),
     defineField({
-      name: 'order',
-      title: 'Order',
-      type: 'number',
-      validation: Rule => [
-        Rule.required()
-          .integer()
-          .positive()
-          .error('Order must be a positive integer')
-      ]
-    }),
-    defineField({
-      name: 'skills',
       title: 'Skills',
+      name: 'skills',
       type: 'array',
       of: [{ type: 'reference', to: { type: 'skill' } }]
     })

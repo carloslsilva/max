@@ -3,18 +3,18 @@ import { defineField, defineType } from 'sanity'
 const maxLength = 16
 
 export const skill = defineType({
-  name: 'skill',
   title: 'Skill',
+  name: 'skill',
   type: 'document',
   fields: [
     defineField({
-      name: 'title',
       title: 'Title',
+      name: 'title',
       type: 'string'
     }),
     defineField({
-      name: 'slug',
       title: 'Slug',
+      name: 'slug',
       type: 'slug',
       options: {
         source: 'title',
@@ -34,22 +34,11 @@ export const skill = defineType({
       of: [{ type: 'string' }],
       options: {
         list: [
-          { title: 'Software Development', value: 'softwareDevelopment' },
-          { title: 'Programming Language', value: 'programmingLanguage' },
-          { title: 'Embedded Development', value: 'embeddedDevelopment' },
-          { title: 'Web Development', value: 'webDevelopment' }
+          { title: 'Web Development', value: 'Web Development' },
+          { title: 'Embedded Development', value: 'Embedded Development' },
+          { title: 'Programming Language', value: 'Programming Language' }
         ]
       }
-    }),
-    defineField({
-      title: 'Image',
-      name: 'image',
-      type: 'image'
-    }),
-    defineField({
-      name: 'description',
-      title: 'Description',
-      type: 'text'
     })
   ],
   preview: {
