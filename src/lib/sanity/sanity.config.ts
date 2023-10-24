@@ -7,7 +7,7 @@ import { schemaTypes } from './schema'
 const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!
 const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET!
 
-const config = defineConfig({
+export const config = defineConfig({
   name: 'default',
   title: 'CS',
   projectId,
@@ -18,5 +18,3 @@ const config = defineConfig({
     types: schemaTypes
   }
 })
-
-export default config
