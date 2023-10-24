@@ -1,5 +1,4 @@
 export { Container } from './Container'
-export { Divider } from './Divider'
 export { Icon } from './Icon'
 export { Section } from './Section'
 export { Text } from './Text'
