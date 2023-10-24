@@ -31,7 +31,7 @@ export const job = defineType({
     }),
     defineField({
       title: 'Start Date',
-      name: 'starDate',
+      name: 'startDate',
       type: 'date',
       validation: Rule => [
         Rule.required().error('A start date is required'),
@@ -65,7 +65,7 @@ export const job = defineType({
     select: {
       title: 'title',
       subtitle: 'company',
-      date: 'starDate'
+      date: 'startDate'
     },
     prepare(selection) {
       const { title, subtitle, date } = selection

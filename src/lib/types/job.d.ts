@@ -1,4 +1,4 @@
-export type Job = {
+export type JobType = {
   id: string
   title: string
   company: string
