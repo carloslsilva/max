@@ -37,6 +37,7 @@ export const getProjects = async () => {
     groq`
       *[_type == "project"] {
         "id": _id,
+        title,
         description,
         "coverImage": coverImage.asset->url,
         githubUrl,

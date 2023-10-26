@@ -1,8 +1,7 @@
 import { FC, ReactNode } from 'react'
 import {
-  IconBars,
-  IconBarsStaggered,
-  IconBookmark,
+  IconAstro,
+  IconBootstrap,
   IconC,
   IconCode,
   IconCodepen,
@@ -13,24 +12,26 @@ import {
   IconFacebook,
   IconFile,
   IconFolder,
-  IconFork,
   IconFreeCodeCamp,
   IconGit,
   IconGitHub,
   IconHtml,
   IconInstagram,
-  IconJs,
+  IconJavaScript,
   IconLink,
-  IconLinkedin,
+  IconLinkedIn,
   IconMicrochip,
+  IconNextJs,
   IconNodeJs,
   IconReact,
-  IconStar,
+  IconRedux,
+  IconSass,
+  IconTailwindCss,
   IconTwitter,
-  IconXmark,
-  IconXtwiter,
-  IconYoutube
+  IconTypeScript,
+  IconYouTube
 } from './Icons'
+import { TwitterX } from './Icons/TwitterX'
 
 type Props = {
   name: string
@@ -38,9 +39,8 @@ type Props = {
 
 export const Icon: FC<Props> = ({ name }) => {
   const iconComponents: Record<string, ReactNode> = {
-    bars: <IconBars />,
-    barsstaggered: <IconBarsStaggered />,
-    bookmark: <IconBookmark />,
+    astro: <IconAstro />,
+    bootstrap: <IconBootstrap />,
     c: <IconC />,
     code: <IconCode />,
     codepen: <IconCodepen />,
@@ -49,25 +49,29 @@ export const Icon: FC<Props> = ({ name }) => {
     css: <IconCss />,
     external: <IconExternal />,
     facebook: <IconFacebook />,
+    freertos: <IconMicrochip />,
     file: <IconFile />,
     folder: <IconFolder />,
-    fork: <IconFork />,
     freeCodeCamp: <IconFreeCodeCamp />,
     git: <IconGit />,
     github: <IconGitHub />,
     html: <IconHtml />,
     instagram: <IconInstagram />,
-    js: <IconJs />,
+    javascript: <IconJavaScript />,
     link: <IconLink />,
-    linkedin: <IconLinkedin />,
+    linkedin: <IconLinkedIn />,
     microchip: <IconMicrochip />,
+    nextjs: <IconNextJs />,
     nodejs: <IconNodeJs />,
     react: <IconReact />,
-    star: <IconStar />,
+    redux: <IconRedux />,
+    sass: <IconSass />,
+    tailwindcss: <IconTailwindCss />,
+    typescript: <IconTypeScript />,
     twitter: <IconTwitter />,
-    xmark: <IconXmark />,
-    xtwitter: <IconXtwiter />,
-    youtube: <IconYoutube />
+    twitterx: <TwitterX />,
+    styledcomponents: <IconCode />,
+    youtube: <IconYouTube />
   }
 
   return iconComponents[name] || <IconExternal />

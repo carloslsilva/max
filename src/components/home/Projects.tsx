@@ -1,116 +1,108 @@
-import { FC } from 'react'
+import { Badges, Icon, Section, Text, Title } from '@components/common'
+import { type ProjectType } from '@lib/types'
+import Image from 'next/image'
+import Link from 'next/link'
+import { FC, ReactNode } from 'react'
+import Markdown from 'react-markdown'
 
-type ProjectsProps = {}
+type ProjectImageProps = {
+  src: string
+  alt: string
+}
 
-export const Projects: FC<ProjectsProps> = () => (
-  <>
-    <section className='body-font overflow-hidden text-gray-600'>
-      <div className='container mx-auto px-5 py-24'>
-        <div className='-my-8 divide-y-2 divide-gray-100'>
-          <div className='flex flex-wrap py-8 md:flex-nowrap'>
-            <div className='mb-6 flex flex-shrink-0 flex-col md:mb-0 md:w-64'>
-              <span className='title-font font-semibold text-gray-700'>
-                CATEGORY
-              </span>
-              <span className='mt-1 text-sm text-gray-500'>12 Jun 2019</span>
-            </div>
-            <div className='md:flex-grow'>
-              <h2 className='title-font mb-2 text-2xl font-medium text-gray-900'>
-                Bitters hashtag waistcoat fashion axe chia unicorn
-              </h2>
-              <p className='leading-relaxed'>
-                Glossier echo park pug, church-key sartorial biodiesel
-                vexillologist pop-up snackwave ramps cornhole. Marfa 3 wolf moon
-                party messenger bag selfies, poke vaporware kombucha
-                lumbersexual pork belly polaroid hoodie portland craft beer.
-              </p>
-              <a className='mt-4 inline-flex items-center text-indigo-500'>
-                Learn More
-                <svg
-                  className='ml-2 h-4 w-4'
-                  viewBox='0 0 24 24'
-                  stroke='currentColor'
-                  strokeWidth={2}
-                  fill='none'
-                  strokeLinecap='round'
-                  strokeLinejoin='round'
-                >
-                  <path d='M5 12h14' />
-                  <path d='M12 5l7 7-7 7' />
-                </svg>
-              </a>
-            </div>
-          </div>
-          <div className='flex flex-wrap py-8 md:flex-nowrap'>
-            <div className='mb-6 flex flex-shrink-0 flex-col md:mb-0 md:w-64'>
-              <span className='title-font font-semibold text-gray-700'>
-                CATEGORY
-              </span>
-              <span className='mt-1 text-sm text-gray-500'>12 Jun 2019</span>
-            </div>
-            <div className='md:flex-grow'>
-              <h2 className='title-font mb-2 text-2xl font-medium text-gray-900'>
-                Meditation bushwick direct trade taxidermy shaman
-              </h2>
-              <p className='leading-relaxed'>
-                Glossier echo park pug, church-key sartorial biodiesel
-                vexillologist pop-up snackwave ramps cornhole. Marfa 3 wolf moon
-                party messenger bag selfies, poke vaporware kombucha
-                lumbersexual pork belly polaroid hoodie portland craft beer.
-              </p>
-              <a className='mt-4 inline-flex items-center text-indigo-500'>
-                Learn More
-                <svg
-                  className='ml-2 h-4 w-4'
-                  viewBox='0 0 24 24'
-                  stroke='currentColor'
-                  strokeWidth={2}
-                  fill='none'
-                  strokeLinecap='round'
-                  strokeLinejoin='round'
-                >
-                  <path d='M5 12h14' />
-                  <path d='M12 5l7 7-7 7' />
-                </svg>
-              </a>
-            </div>
-          </div>
-          <div className='flex flex-wrap py-8 md:flex-nowrap'>
-            <div className='mb-6 flex flex-shrink-0 flex-col md:mb-0 md:w-64'>
-              <span className='title-font font-semibold text-gray-700'>
-                CATEGORY
-              </span>
-              <span className='text-sm text-gray-500'>12 Jun 2019</span>
-            </div>
-            <div className='md:flex-grow'>
-              <h2 className='title-font mb-2 text-2xl font-medium text-gray-900'>
-                Woke master cleanse drinking vinegar salvia
-              </h2>
-              <p className='leading-relaxed'>
-                Glossier echo park pug, church-key sartorial biodiesel
-                vexillologist pop-up snackwave ramps cornhole. Marfa 3 wolf moon
-                party messenger bag selfies, poke vaporware kombucha
-                lumbersexual pork belly polaroid hoodie portland craft beer.
-              </p>
-              <a className='mt-4 inline-flex items-center text-indigo-500'>
-                Learn More
-                <svg
-                  className='ml-2 h-4 w-4'
-                  viewBox='0 0 24 24'
-                  stroke='currentColor'
-                  strokeWidth={2}
-                  fill='none'
-                  strokeLinecap='round'
-                  strokeLinejoin='round'
-                >
-                  <path d='M5 12h14' />
-                  <path d='M12 5l7 7-7 7' />
-                </svg>
-              </a>
-            </div>
-          </div>
+const ProjectImage: FC<ProjectImageProps> = ({ src, alt }) => {
+  return (
+    <div className='overflow-hidden rounded shadow-xl md:w-9/12'>
+      <Image
+        src={src}
+        title={alt}
+        alt={alt}
+        width={1200}
+        height={630}
+        placeholder='blur'
+        blurDataURL={src}
+        quality={25}
+        className='h-auto w-max object-cover'
+      />
+    </div>
+  )
+}
+
+type ProjectLinkProps = {
+  title: string
+  href: string
+  children: ReactNode
+}
+
+const ProjectLink: FC<ProjectLinkProps> = ({ href, title, children }) => (
+  <Link
+    href={href}
+    title={title}
+    target='_blank'
+    rel='noopener noreferrer'
+    className='text-primary-500 hover:text-primary-900'
+  >
+    <div className='flex h-5 w-5 items-center justify-center transition-all duration-300 ease-in-out hover:scale-110 active:scale-90'>
+      {children}
+    </div>
+  </Link>
+)
+
+type ProjectProps = {
+  project: ProjectType
+}
+
+const Project: FC<ProjectProps> = ({ project }) => (
+  <div className='flex flex-col-reverse gap-4 py-8 md:flex-row'>
+    <div className='flex flex-col items-center justify-center md:w-3/12'>
+      <ProjectImage src={project.coverImage} alt={project.title} />
+    </div>
+
+    <div className='md:w-9/12'>
+      <div className='flex flex-row justify-start'>
+        <Title className='my-0 mr-4' as='h3'>
+          {project.title}
+        </Title>
+        <div className='flex items-center justify-center gap-4'>
+          {project.githubUrl && (
+            <ProjectLink href={project.githubUrl} title='Source Code on GitHub'>
+              <Icon name='github' />{' '}
+            </ProjectLink>
+          )}
+          {project.externalUrl && (
+            <ProjectLink href={project.externalUrl} title='Live Preview'>
+              <Icon name='link' />
+            </ProjectLink>
+          )}
         </div>
       </div>
-    </section>
-  </>
+
+      <Markdown
+        className='my-4'
+        components={{
+          p(props) {
+            return <Text>{props.children}</Text>
+          }
+        }}
+      >
+        {project.description}
+      </Markdown>
+
+      <Badges tags={project.skills} />
+    </div>
+  </div>
+)
+
+type ProjectsProps = {
+  projects: ProjectType[]
+}
+
+export const Projects: FC<ProjectsProps> = ({ projects }) => (
+  <Section title='Projects'>
+    <div className='-my-8 divide-y-2 divide-primary-100'>
+      {projects.map(project => (
+        <Project key={project.id} project={project} />
+      ))}
+    </div>
+  </Section>
 )

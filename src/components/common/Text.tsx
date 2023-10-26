@@ -3,9 +3,13 @@ import { twMerge } from 'tailwind-merge'
 
 export const Text: FC<HTMLProps<HTMLParagraphElement>> = ({
   className,
-  children
+  children,
+  ...rest
 }) => (
-  <p className={twMerge('text-base font-normal text-gray-500', className)}>
+  <p
+    className={twMerge('font-base text-base leading-relaxed', className)}
+    {...rest}
+  >
     {children}
   </p>
 )

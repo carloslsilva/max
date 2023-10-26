@@ -3,3 +3,8 @@ export type SkillType = {
   title: string
   slug: string
 }
+
+export type SkillSetType = {
+  title: string
+  skills: SkillType[]
+}

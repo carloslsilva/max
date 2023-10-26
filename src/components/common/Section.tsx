@@ -1,14 +1,25 @@
 import { FC, ReactNode } from 'react'
-import { Title } from './Title'
+import { Container, Title } from '.'
 
-interface Props {
+type Props = {
   title?: string
   children: ReactNode
 }
 
-export const Section: FC<Props> = ({ title, children }) => (
-  <section className='flex flex-col'>
-    {title && <Title className='mb-4'>{title}</Title>}
-    <div>{children}</div>
-  </section>
-)
+export const Section: FC<Props> = ({ title, children }) => {
+  const classes = 'py-10'
+  if (!title) {
+    return <Container className={classes}>{children}</Container>
+  }
+
+  return (
+    <Container className={classes} as='section'>
+      {title && (
+        <div>
+          <Title as='h2'>{title}</Title>
+        </div>
+      )}
+      <div>{children}</div>
+    </Container>
+  )
+}

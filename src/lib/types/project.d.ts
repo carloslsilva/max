@@ -1,7 +1,8 @@
 export type ProjectType = {
-  name: string
+  id: string
+  title: string
   description: string
-  coverImage?: string
+  coverImage: string
   githubUrl?: string
   externalUrl?: string
   skills: string[]
