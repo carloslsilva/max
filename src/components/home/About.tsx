@@ -8,8 +8,9 @@ export const About = () => (
       <div className='mb-10 w-5/6 md:mb-0 md:w-1/2 lg:w-full lg:max-w-lg'>
         <Image
           className='rounded-xl  object-cover object-center shadow-2xl'
-          alt='hero'
+          priority={true}
           src={avatar}
+          alt='hero'
         />
       </div>
       <div className='flex flex-col items-center justify-center text-center md:w-1/2 md:items-start md:pl-16 md:text-left lg:flex-grow lg:pl-24'>
