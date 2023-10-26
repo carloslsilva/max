@@ -10,7 +10,7 @@ export const Footer: FC<Props> = () => (
     <a className='flex items-center justify-center font-title font-medium text-primary-900 md:justify-start'>
       <span className='ml-3 text-xl'>CS</span>
     </a>
-    <p className='mt-4 text-sm text-gray-500 sm:ml-4 sm:mt-0 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:pl-4'>
+    <p className='mt-2 text-sm text-gray-500 sm:ml-4 sm:mt-0 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:pl-4'>
       © 2023 Carlos Silva —
       <a
         className='ml-1 text-primary-600'
@@ -21,7 +21,7 @@ export const Footer: FC<Props> = () => (
         @carloslsilva
       </a>
     </p>
-    <span className='flex flex-row items-center justify-center gap-3 sm:ml-auto sm:mt-0 sm:justify-start'>
+    <span className='mt-3 flex flex-row items-center justify-center gap-3 sm:ml-auto sm:mt-0 sm:justify-start'>
       <a
         href='https://github.com/carloslsilva'
         rel='noopener noreferrer'
