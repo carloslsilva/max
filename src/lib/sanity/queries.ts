@@ -9,7 +9,7 @@ const client = createClient({
   projectId,
   dataset,
   apiVersion,
-  useCdn: false
+  useCdn: true
 })
 
 export const getJobs = async () => {
