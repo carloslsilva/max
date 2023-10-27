@@ -63,7 +63,7 @@ export const getSkillSet = async (
 ) => {
   const skillSet = await client.fetch<SkillType[]>({
     query: groq`
-      *[_type == "skill" && "${set}" in set] {
+      *[_type == "skill" && "${set}" in set] | order(title asc) {
         "id": _id,
         title,
         "slug": slug.current

@@ -6,5 +6,5 @@ export type JobType = {
   startDate: string
   endDate: string | null
   description: string
-  skill: string[]
+  skills: string[]
 }
