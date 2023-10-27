@@ -11,7 +11,9 @@ const Skill: FC<SkillProps> = ({ skill }) => (
     <div className='mr-4 flex h-6 w-6 items-center justify-center text-primary-700'>
       <Icon name={skill.slug} />
     </div>
-    <h4 className='line-clamp-1 text-primary-500'>{skill.title}</h4>
+    <h4 className='line-clamp-1 text-xs text-primary-500 sm:text-base'>
+      {skill.title}
+    </h4>
   </div>
 )
 
