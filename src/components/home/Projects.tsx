@@ -35,14 +35,8 @@ type ProjectLinkProps = {
 }
 
 const ProjectLink: FC<ProjectLinkProps> = ({ href, title, children }) => (
-  <Link
-    href={href}
-    title={title}
-    target='_blank'
-    rel='noopener noreferrer'
-    className='text-primary-500 hover:text-primary-900'
-  >
-    <div className='flex h-5 w-5 items-center justify-center transition-all duration-300 ease-in-out hover:scale-110 active:scale-90'>
+  <Link href={href} title={title} target='_blank' rel='noopener noreferrer'>
+    <div className='flex h-5 w-5 items-center justify-center text-primary-500 transition-all duration-100 hover:-translate-y-1 hover:text-primary-900 active:animate-ping'>
       {children}
     </div>
   </Link>
