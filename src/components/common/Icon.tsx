@@ -39,6 +39,7 @@ type Props = {
 
 export const Icon: FC<Props> = ({ name }) => {
   const iconComponents: Record<string, ReactNode> = {
+    armcortexm: <IconMicrochip />,
     astro: <IconAstro />,
     bootstrap: <IconBootstrap />,
     c: <IconC />,
@@ -47,12 +48,13 @@ export const Icon: FC<Props> = ({ name }) => {
     cpp: <IconCpp />,
     csharp: <IconCsharp />,
     css: <IconCss />,
+    dspic: <IconMicrochip />,
     external: <IconExternal />,
     facebook: <IconFacebook />,
-    freertos: <IconMicrochip />,
     file: <IconFile />,
     folder: <IconFolder />,
     freeCodeCamp: <IconFreeCodeCamp />,
+    freertos: <IconMicrochip />,
     git: <IconGit />,
     github: <IconGitHub />,
     html: <IconHtml />,
@@ -63,14 +65,15 @@ export const Icon: FC<Props> = ({ name }) => {
     microchip: <IconMicrochip />,
     nextjs: <IconNextJs />,
     nodejs: <IconNodeJs />,
+    pic: <IconMicrochip />,
     react: <IconReact />,
     redux: <IconRedux />,
     sass: <IconSass />,
+    styledcomponents: <IconCode />,
     tailwindcss: <IconTailwindCss />,
-    typescript: <IconTypeScript />,
     twitter: <IconTwitter />,
     twitterx: <TwitterX />,
-    styledcomponents: <IconCode />,
+    typescript: <IconTypeScript />,
     youtube: <IconYouTube />
   }
 
