@@ -12,7 +12,7 @@ type ProjectImageProps = {
 
 const ProjectImage: FC<ProjectImageProps> = ({ src, alt }) => {
   return (
-    <div className='overflow-hidden rounded shadow-xl md:w-9/12'>
+    <div className='w-6/12 overflow-hidden rounded shadow-xl sm:w-7/12 md:w-9/12'>
       <Image
         src={src}
         title={alt}
