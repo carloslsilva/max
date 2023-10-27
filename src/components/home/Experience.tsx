@@ -21,7 +21,7 @@ const Job: FC<JobProps> = ({ job }) => {
       <Markdown
         components={{
           p(props) {
-            return <Text className='leading-normal'>{props.children}</Text>
+            return <Text variant='compressed'>{props.children}</Text>
           }
         }}
       >

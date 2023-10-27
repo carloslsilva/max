@@ -17,7 +17,7 @@ export const About = () => (
         <Title className='mb-4' as='h1'>
           Carlos Silva
         </Title>
-        <Text className='mb-8'>
+        <Text className='mb-8' variant='bigger'>
           Electrical Engineer majoring in Electronics with experience in
           firmware development and hardware prototyping. Proficient in C, C++,
           and C#. Knowledgeable in web development using technologies such as
@@ -26,14 +26,6 @@ export const About = () => (
           dedicated professional, capable of working both in teams and
           independently.
         </Text>
-        {/* <div className='flex justify-center'>
-          <button className='inline-flex rounded border-0 bg-indigo-500 px-6 py-2 text-lg text-white hover:bg-indigo-600 focus:outline-none'>
-            Contact Me!
-          </button>
-          <button className='ml-4 inline-flex rounded border-0 bg-gray-100 px-6 py-2 text-lg text-gray-700 hover:bg-gray-200 focus:outline-none'>
-            Resume
-          </button>
-        </div> */}
       </div>
     </div>
   </Section>
