@@ -1,7 +1,7 @@
 import { groq } from 'next-sanity'
 
 export const getJobsQuery = groq`
-  *[_type == "job"] | order(startDate desc) {
+  *[_type == "job"] | order(endDate desc) {
     "id": _id,
     title,
     company,
