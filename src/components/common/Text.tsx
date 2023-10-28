@@ -1,4 +1,4 @@
-import { FC, HTMLProps } from 'react'
+import type { FC, HTMLProps } from 'react'
 import { twMerge } from 'tailwind-merge'
 
 interface Props extends HTMLProps<HTMLParagraphElement> {
@@ -13,7 +13,6 @@ export const Text: FC<Props> = ({
 }) => (
   <p
     className={twMerge(
-      'font-base',
       variant == 'bigger' && 'text-lg leading-relaxed',
       variant == 'normal' && 'text-base leading-relaxed',
       variant == 'compressed' && 'text-base leading-normal',

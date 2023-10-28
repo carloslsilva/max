@@ -1,6 +1,6 @@
 export function formatDateRange(
   startDate: Date | string,
-  endDate: Date | string | null
+  endDate: Date | string
 ) {
   const locale = 'en-US'
   const options: Intl.DateTimeFormatOptions = {
@@ -13,9 +13,10 @@ export function formatDateRange(
     locale,
     options
   )
-  const formattedEndDate = endDate
-    ? new Date(endDate).toLocaleDateString(locale, options)
-    : 'PRESENT'
+  const formattedEndDate =
+    new Date(endDate) < new Date('2050-01-01')
+      ? new Date(endDate).toLocaleDateString(locale, options)
+      : 'PRESENT'
 
   return `${formattedStartDate} - ${formattedEndDate}`
 }

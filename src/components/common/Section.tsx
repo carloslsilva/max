@@ -1,4 +1,4 @@
-import { FC, ReactNode } from 'react'
+import type { FC, ReactNode } from 'react'
 import { Container, Title } from '.'
 
 type Props = {
@@ -8,6 +8,7 @@ type Props = {
 
 export const Section: FC<Props> = ({ title, children }) => {
   const classes = 'py-3 lg:py-10'
+
   if (!title) {
     return <Container className={classes}>{children}</Container>
   }

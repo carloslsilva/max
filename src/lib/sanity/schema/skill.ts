@@ -36,9 +36,9 @@ export const skill = defineType({
       of: [{ type: 'string' }],
       options: {
         list: [
-          { title: 'Web Development', value: 'Web Development' },
-          { title: 'Embedded Development', value: 'Embedded Development' },
-          { title: 'Programming Language', value: 'Programming Language' }
+          { title: 'Frontend Development', value: 'Frontend Development' },
+          { title: 'Backend Development', value: 'Backend Development' },
+          { title: 'Embedded Development', value: 'Embedded Development' }
         ]
       }
     })

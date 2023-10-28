@@ -1,22 +1,44 @@
 import { About, Contact, Experience, Projects, Skills } from '@components/home'
-import { getJobs, getProjects, getSkillSet } from '@lib/sanity/queries'
-import { type SkillSetType } from '@lib/types'
+import { client } from '@lib/sanity/client'
+import * as queries from '@lib/sanity/queries'
+import type { JobType, ProjectType, SkillSetType } from '@lib/types'
+
+const clientOptions = {
+  next: { revalidate: 3600 }
+}
 
 export default async function Home() {
-  const jobs = await getJobs()
-  const projects = await getProjects()
+  const jobs = await client.fetch<JobType[]>(
+    queries.getJobsQuery,
+    clientOptions
+  )
+
+  const projects = await client.fetch<ProjectType[]>(
+    queries.getProjectsQuery,
+    clientOptions
+  )
+
   const skillSets: SkillSetType[] = [
     {
-      title: 'Web Development',
-      skills: await getSkillSet('Web Development')
+      title: 'Frontend Development',
+      skills: await client.fetch(
+        queries.getSkillSetQuery('Frontend Development'),
+        clientOptions
+      )
+    },
+    {
+      title: 'Backend Development',
+      skills: await client.fetch(
+        queries.getSkillSetQuery('Backend Development'),
+        clientOptions
+      )
     },
     {
       title: 'Embedded Development',
-      skills: await getSkillSet('Embedded Development')
-    },
-    {
-      title: 'Programming Language',
-      skills: await getSkillSet('Programming Language')
+      skills: await client.fetch(
+        queries.getSkillSetQuery('Embedded Development'),
+        clientOptions
+      )
     }
   ]
 

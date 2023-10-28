@@ -1,4 +1,4 @@
-import { FC, HTMLProps } from 'react'
+import type { FC, HTMLProps } from 'react'
 import { twMerge } from 'tailwind-merge'
 
 interface Props extends HTMLProps<HTMLElement> {
@@ -18,8 +18,7 @@ export const Container: FC<Props> = ({
     <Component {...rest}>
       <div
         className={twMerge(
-          variant === 'long' && 'container',
-          variant === 'short' && 'max-w-5xl',
+          variant === 'long' ? 'container' : 'max-w-5xl',
           'mx-auto px-5',
           className
         )}

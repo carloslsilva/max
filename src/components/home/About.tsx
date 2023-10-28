@@ -1,6 +1,5 @@
 import { Section, Text, Title } from '@components/common'
 import Image from 'next/image'
-import avatar from '../../assets/avatar.jpg'
 
 export const About = () => (
   <Section>
@@ -9,19 +8,19 @@ export const About = () => (
         <Image
           className='rounded-xl  object-cover object-center shadow-2xl'
           priority={true}
-          src={avatar}
-          alt='hero'
+          width={960}
+          height={960}
+          src='/avatar.jpg'
+          alt='avatar'
         />
       </div>
       <div className='flex flex-col items-center justify-center text-center md:w-1/2 md:items-start md:pl-16 md:text-left lg:flex-grow lg:pl-24'>
-        <Title className='mb-4' as='h1'>
-          Carlos Silva
-        </Title>
-        <Text className='mb-8' variant='bigger'>
+        <Title as='h1'>Carlos Silva</Title>
+        <Text variant='bigger'>
           Electrical Engineer majoring in Electronics with experience in
           firmware development and hardware prototyping. Proficient in C, C++,
           and C#. Knowledgeable in web development using technologies such as
-          Node.js and React. A professional dedicated to creating innovative and
+          React and Node.js. A professional dedicated to creating innovative and
           efficient solutions that meet customer needs. A self-motivated and
           dedicated professional, capable of working both in teams and
           independently.

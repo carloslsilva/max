@@ -1,8 +1,8 @@
 import { Badges, Icon, Section, Text, Title } from '@components/common'
-import { type ProjectType } from '@lib/types'
+import type { ProjectType } from '@lib/types'
 import Image from 'next/image'
 import Link from 'next/link'
-import { FC, ReactNode } from 'react'
+import type { FC, ReactNode } from 'react'
 import Markdown from 'react-markdown'
 
 type ProjectImageProps = {

@@ -43,10 +43,8 @@ export const job = defineType({
       name: 'endDate',
       type: 'date',
       validation: Rule => [
-        Rule.min(Rule.valueOfField('startDate')).error(
-          'End date must greater than start date'
-        ),
-        Rule.min('2016-01-01').error('Start date must be greater than 2016 Jan')
+        Rule.required().error('A end date is required'),
+        Rule.min('2016-01-01').error('End date must be greater than 2016 Jan')
       ]
     }),
     defineField({

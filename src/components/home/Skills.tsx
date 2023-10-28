@@ -1,6 +1,6 @@
 import { Icon, Section, Title } from '@components/common'
-import { type SkillSetType, type SkillType } from '@lib/types'
-import { FC } from 'react'
+import type { SkillSetType, SkillType } from '@lib/types'
+import type { FC } from 'react'
 
 type SkillProps = {
   skill: SkillType
@@ -8,7 +8,7 @@ type SkillProps = {
 
 const Skill: FC<SkillProps> = ({ skill }) => (
   <div className='flex h-full items-center rounded-lg border border-primary-200 bg-primary-50 p-4 duration-300 ease-in-out hover:scale-105 hover:shadow-2xl'>
-    <div className='mr-4 flex h-6 w-6 items-center justify-center text-primary-700'>
+    <div className='duration-600 mr-4 flex h-6 w-6 items-center justify-center text-primary-700'>
       <Icon name={skill.slug} />
     </div>
     <h4 className='line-clamp-1 text-xs text-primary-500 sm:text-base'>
