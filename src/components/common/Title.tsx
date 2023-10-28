@@ -16,7 +16,7 @@ export const Title: FC<Props> = ({
     <Tag
       className={twMerge(
         'font-title',
-        'h1' === as && 'text-3xl font-bold text-primary-800 lg:text-4xl',
+        'h1' === as && 'mb-4 text-3xl font-bold text-primary-800 lg:text-4xl',
         'h2' === as && 'mb-8 text-2xl font-medium text-primary-800 sm:text-3xl',
         'h3' === as && 'mb-3 text-lg text-primary-600',
         className

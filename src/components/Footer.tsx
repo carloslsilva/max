@@ -1,19 +1,19 @@
 import { FC } from 'react'
-import { Container, Icon } from './common'
+import { Container, Icon, SocialLink } from './common'
+import { socialLinks } from '@lib/socialLinks'
 
-type Props = {}
-export const Footer: FC<Props> = () => (
+export const Footer: FC = () => (
   <Container
-    className='mt-10 flex flex-col items-center gap-3 border border-t-2 border-primary-100 px-5 py-8 sm:flex-row'
+    className='mt-10 flex flex-col items-center gap-3 border border-t-2 border-primary-100 py-8 sm:flex-row sm:py-16'
     as='footer'
   >
     <a className='flex items-center justify-center font-title font-medium text-primary-900 md:justify-start'>
-      <span className='text-xl sm:ml-3'>CS</span>
+      <span className='text-xl'>CS</span>
     </a>
-    <p className='text-sm text-gray-500 sm:ml-4 sm:mt-0 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:pl-4'>
+    <p className='text-sm text-primary-500 sm:ml-4 sm:mt-0 sm:border-l-2 sm:border-gray-200 sm:pl-4'>
       © 2023 Carlos Silva —
       <a
-        className='ml-1 text-primary-600'
+        className='ml-1 font-semibold text-primary-900'
         href='https://twitter.com/carloslsilva'
         rel='noopener noreferrer'
         target='_blank'
@@ -21,33 +21,10 @@ export const Footer: FC<Props> = () => (
         @carloslsilva
       </a>
     </p>
-    <span className='flex flex-row items-center justify-center gap-3 sm:ml-auto sm:mt-0 sm:justify-start'>
-      <a
-        href='https://github.com/carloslsilva'
-        rel='noopener noreferrer'
-        target='_blank'
-        className='flex h-5 w-5 flex-row items-center justify-center text-primary-500 duration-300 ease-in-out hover:scale-105 hover:text-primary-900 active:animate-ping'
-      >
-        <Icon name='github' />
-      </a>
-
-      <a
-        href='https://www.linkedin.com/in/carloslsilva/'
-        rel='noopener noreferrer'
-        target='_blank'
-        className='flex h-5 w-5 flex-row items-center justify-center text-primary-500 duration-300 ease-in-out hover:scale-105 hover:text-primary-900 active:animate-ping'
-      >
-        <Icon name='linkedin' />
-      </a>
-
-      <a
-        href='https://twitter.com/carloslsilva'
-        rel='noopener noreferrer'
-        target='_blank'
-        className='flex h-5 w-5 flex-row items-center justify-center text-primary-500 duration-300 ease-in-out hover:scale-105 hover:text-primary-900 active:animate-ping'
-      >
-        <Icon name='twitter' />
-      </a>
+    <span className='flex flex-row items-center justify-center gap-3 sm:ml-auto sm:mt-0'>
+      {socialLinks.map(socialLink => (
+        <SocialLink key={crypto.randomUUID()} socialLink={socialLink} />
+      ))}
     </span>
   </Container>
 )

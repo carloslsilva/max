@@ -8,6 +8,7 @@ type Props = {
 
 export const Section: FC<Props> = ({ title, children }) => {
   const classes = 'py-3 lg:py-10'
+
   if (!title) {
     return <Container className={classes}>{children}</Container>
   }
