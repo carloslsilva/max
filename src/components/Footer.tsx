@@ -4,7 +4,7 @@ import { Container, SocialLink } from './common'
 
 export const Footer: FC = () => (
   <Container
-    className='mt-10 flex flex-col items-center gap-3 border-t-2 border-primary-200 py-8 sm:flex-row sm:py-16'
+    className='mt-10 flex flex-col items-center gap-3 border-t-2 border-primary-100 py-8 sm:flex-row sm:py-16'
     as='footer'
   >
     <a className='flex items-center justify-center font-title font-medium text-primary-900 md:justify-start'>
