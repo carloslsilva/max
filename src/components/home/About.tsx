@@ -1,6 +1,5 @@
 import { Section, Text, Title } from '@components/common'
 import Image from 'next/image'
-import avatar from '../../assets/avatar.jpg'
 
 export const About = () => (
   <Section>
@@ -9,8 +8,10 @@ export const About = () => (
         <Image
           className='rounded-xl  object-cover object-center shadow-2xl'
           priority={true}
-          src={avatar}
-          alt='hero'
+          width={960}
+          height={960}
+          src='/avatar.jpg'
+          alt='avatar'
         />
       </div>
       <div className='flex flex-col items-center justify-center text-center md:w-1/2 md:items-start md:pl-16 md:text-left lg:flex-grow lg:pl-24'>

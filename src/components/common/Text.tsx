@@ -1,4 +1,4 @@
-import { FC, HTMLProps } from 'react'
+import type { FC, HTMLProps } from 'react'
 import { twMerge } from 'tailwind-merge'
 
 interface Props extends HTMLProps<HTMLParagraphElement> {

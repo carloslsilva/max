@@ -1,6 +1,6 @@
+import type { SocialLinkType } from '@lib/types'
 import { FC } from 'react'
 import { Icon } from './Icon'
-import { type SocialLinkType } from '@lib/types'
 
 type Props = {
   socialLink: SocialLinkType

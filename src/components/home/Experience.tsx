@@ -1,7 +1,7 @@
 import { Badges, Section, Text, Title } from '@components/common'
-import { JobType } from '@lib/types'
+import type { JobType } from '@lib/types'
 import { formatDateRange } from '@lib/utils'
-import { FC } from 'react'
+import type { FC } from 'react'
 import Markdown from 'react-markdown'
 
 type JobProps = {

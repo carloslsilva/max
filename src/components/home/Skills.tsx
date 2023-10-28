@@ -1,6 +1,6 @@
 import { Icon, Section, Title } from '@components/common'
-import { type SkillSetType, type SkillType } from '@lib/types'
-import { FC } from 'react'
+import type { SkillSetType, SkillType } from '@lib/types'
+import type { FC } from 'react'
 
 type SkillProps = {
   skill: SkillType

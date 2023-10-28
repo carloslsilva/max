@@ -1,5 +1,5 @@
 import { Section, Text } from '@components/common'
-import { FC } from 'react'
+import type { FC } from 'react'
 
 export const Contact: FC = () => (
   <Section title='Contact'>
