@@ -19,7 +19,7 @@ export const About = () => (
           Electrical Engineer majoring in Electronics with experience in
           firmware development and hardware prototyping. Proficient in C, C++,
           and C#. Knowledgeable in web development using technologies such as
-          Node.js and React. A professional dedicated to creating innovative and
+          React and Node.js. A professional dedicated to creating innovative and
           efficient solutions that meet customer needs. A self-motivated and
           dedicated professional, capable of working both in teams and
           independently.

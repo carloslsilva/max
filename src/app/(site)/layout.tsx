@@ -12,19 +12,19 @@ const roboto = Roboto({
   weight: ['700'],
   subsets: ['latin'],
   display: 'swap',
-  variable: '--font-roboto'
+  variable: '--font-title'
 })
 
 const nunito = Nunito({
   subsets: ['latin'],
   display: 'swap',
-  variable: '--font-nunito'
+  variable: '--font-sans'
 })
 
 const firaCode = Fira_Code({
   subsets: ['latin'],
   display: 'swap',
-  variable: '--font-fira-code'
+  variable: '--font-mono'
 })
 
 export default function RootLayout({ children }: { children: ReactNode }) {
