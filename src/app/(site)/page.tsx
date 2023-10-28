@@ -7,16 +7,16 @@ export default async function Home() {
   const projects = await getProjects()
   const skillSets: SkillSetType[] = [
     {
-      title: 'Web Development',
-      skills: await getSkillSet('Web Development')
+      title: 'Frontend Development',
+      skills: await getSkillSet('Frontend Development')
+    },
+    {
+      title: 'Backend Development',
+      skills: await getSkillSet('Backend Development')
     },
     {
       title: 'Embedded Development',
       skills: await getSkillSet('Embedded Development')
-    },
-    {
-      title: 'Programming Language',
-      skills: await getSkillSet('Programming Language')
     }
   ]
 

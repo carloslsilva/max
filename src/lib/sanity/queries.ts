@@ -59,7 +59,7 @@ export const getProjects = async () => {
 }
 
 export const getSkillSet = async (
-  set: 'Web Development' | 'Embedded Development' | 'Programming Language'
+  set: 'Frontend Development' | 'Backend Development' | 'Embedded Development'
 ) => {
   const skillSet = await client.fetch<SkillType[]>({
     query: groq`
