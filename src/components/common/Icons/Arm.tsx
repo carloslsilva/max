@@ -1,6 +1,5 @@
 export const Arm = () => (
   <svg
-    xmlns='http://www.w3.org/2000/svg'
     role='img'
     fill='currentColor'
     stroke='currentColor'

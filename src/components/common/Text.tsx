@@ -1,7 +1,7 @@
 import type { FC, HTMLProps } from 'react'
 import { twMerge } from 'tailwind-merge'
 
-interface Props extends HTMLProps<HTMLParagraphElement> {
+type Props = HTMLProps<HTMLParagraphElement> & {
   variant?: 'bigger' | 'normal' | 'compressed'
 }
 

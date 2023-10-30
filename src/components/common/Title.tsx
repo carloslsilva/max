@@ -1,7 +1,7 @@
 import type { FC, HTMLProps } from 'react'
 import { twMerge } from 'tailwind-merge'
 
-interface Props extends HTMLProps<HTMLHeadingElement> {
+type Props = HTMLProps<HTMLHeadingElement> & {
   as?: 'h1' | 'h2' | 'h3'
 }
 

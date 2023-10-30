@@ -1,6 +1,5 @@
 export const C = () => (
   <svg
-    xmlns='http://www.w3.org/2000/svg'
     role='img'
     viewBox='32.18585611720149 20.47 223.6851360941233 247.05999999999997'
   >
