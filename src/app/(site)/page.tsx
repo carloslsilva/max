@@ -1,7 +1,13 @@
-import { About, Contact, Experience, Projects, Skills } from '@components/home'
 import { client } from '@lib/sanity/client'
 import * as queries from '@lib/sanity/queries'
 import type { JobType, ProjectType, SkillSetType } from '@lib/types'
+import {
+  About,
+  Contact,
+  Experience,
+  Projects,
+  Skills
+} from '@ui/components/home'
 
 const clientOptions = {
   next: { revalidate: 3600 }

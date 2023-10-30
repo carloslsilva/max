@@ -5,7 +5,7 @@ export function formatDateRange(
   const locale = 'en-US'
   const options: Intl.DateTimeFormatOptions = {
     year: 'numeric',
-    month: 'long',
+    month: 'short',
     timeZone: 'Europe/London'
   }
 
