@@ -31,15 +31,15 @@ export const InputError: FC<InputErrorProps> = ({ children }) => (
   <>{children && <p className='text-xs text-tomato-500'>{children}</p>}</>
 )
 
+/**
+ * Form components related
+ */
 const commonClasses = twJoin(
   'w-full rounded border border-primary-300 bg-primary-100 bg-opacity-50 px-3 py-1 text-base leading-8 text-primary-700',
   'outline-none transition-colors duration-300 ease-in-out',
   'focus:border-ultra-violet-500 focus:bg-white focus:ring-2 focus:ring-ultra-violet-200'
 )
 
-/**
- * Form components related
- */
 type InputTextProps = Omit<HTMLProps<HTMLInputElement>, 'className'> & {
   label: string
   error?: string
@@ -125,9 +125,11 @@ export const ContactForm: FC = () => {
 
   return (
     <Form
-      onSubmit={handleSubmit(async data => {
-        await new Promise(resolve => setTimeout(resolve, 2000))
-        console.log(data)
+      onSubmit={handleSubmit(async ({ name, email, message }) => {
+        await fetch('/api/email', {
+          method: 'POST',
+          body: JSON.stringify({ name, email, message })
+        })
       })}
     >
       <InputText
