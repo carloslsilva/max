@@ -1,3 +1,4 @@
+import avatar from '@assets/avatar.jpg'
 import { Section, Text, Title } from '@ui/components/common'
 import Image from 'next/image'
 
@@ -8,9 +9,7 @@ export const About = () => (
         <Image
           className='rounded-xl  object-cover object-center shadow-2xl'
           priority={true}
-          width={960}
-          height={960}
-          src='/avatar.jpg'
+          src={avatar}
           alt='avatar'
         />
       </div>
