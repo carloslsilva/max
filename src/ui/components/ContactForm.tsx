@@ -1,7 +1,7 @@
 'use client'
 
 import { zodResolver } from '@hookform/resolvers/zod'
-import { FC, HTMLProps, ReactNode, forwardRef } from 'react'
+import { FC, HTMLProps, ReactNode, forwardRef, useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import { twJoin } from 'tailwind-merge'
 import * as z from 'zod'
@@ -118,10 +118,18 @@ export const ContactForm: FC = () => {
   const {
     register,
     handleSubmit,
-    formState: { isSubmitting, errors }
+    reset,
+    formState: { isSubmitting, isSubmitSuccessful, errors }
   } = useForm<contactValues>({
-    resolver: zodResolver(contactValuesSchema)
+    resolver: zodResolver(contactValuesSchema),
+    defaultValues: { name: '', email: '', message: '' }
   })
+
+  useEffect(() => {
+    if (isSubmitSuccessful) {
+      reset()
+    }
+  }, [isSubmitSuccessful, reset])
 
   return (
     <Form

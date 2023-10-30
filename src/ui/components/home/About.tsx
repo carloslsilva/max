@@ -18,12 +18,11 @@ export const About = () => (
         <Title as='h1'>Carlos Silva</Title>
         <Text variant='bigger'>
           Electrical Engineer majoring in Electronics with experience in
-          firmware development and hardware prototyping. Proficient in C, C++,
-          and C#. Knowledgeable in web development using technologies such as
-          React and Node.js. A professional dedicated to creating innovative and
-          efficient solutions that meet customer needs. A self-motivated and
-          dedicated professional, capable of working both in teams and
-          independently.
+          firmware development and hardware prototyping. Knowledgeable in web
+          development using technologies such as React, Next.js and Node.js. A
+          professional dedicated to creating innovative and efficient solutions
+          that meet customer needs. A self-motivated and dedicated professional,
+          capable of working both in teams and independently.
         </Text>
       </div>
     </div>
