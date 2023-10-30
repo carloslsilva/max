@@ -17,7 +17,7 @@ const config: Config = {
         mono: ['var(--font-mono)', ...defaultTheme.fontFamily.mono]
       },
       colors: {
-        primary: { ...colors.stone, DEFAULT: colors.cyan[600] },
+        primary: { ...colors.stone, DEFAULT: colors.stone[600] },
         'ultra-violet': {
           DEFAULT: '#665c84',
           900: '#14121a',
