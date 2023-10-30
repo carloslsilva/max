@@ -1,8 +1,10 @@
 import { Footer } from '@ui/components/Footer'
+import { ToastContainer } from '@ui/components/ToastContainer'
 import '@ui/styles/site-globals.css'
 import type { Metadata } from 'next'
 import { Fira_Code, Nunito, Roboto } from 'next/font/google'
 import type { ReactNode } from 'react'
+import 'react-toastify/dist/ReactToastify.min.css'
 
 export const metadata: Metadata = {
   title: 'Carlos Silva',
@@ -37,6 +39,7 @@ export default function Layout({ children }: { children: ReactNode }) {
       >
         {children}
         <Footer />
+        <ToastContainer />
       </body>
     </html>
   )

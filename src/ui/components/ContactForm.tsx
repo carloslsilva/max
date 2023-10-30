@@ -3,6 +3,7 @@
 import { zodResolver } from '@hookform/resolvers/zod'
 import { FC, HTMLProps, ReactNode, forwardRef, useEffect } from 'react'
 import { useForm } from 'react-hook-form'
+import { toast } from 'react-toastify'
 import { twJoin } from 'tailwind-merge'
 import * as z from 'zod'
 
@@ -128,6 +129,16 @@ export const ContactForm: FC = () => {
   useEffect(() => {
     if (isSubmitSuccessful) {
       reset()
+      toast.success('Message sent', {
+        position: 'bottom-right',
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: 'light'
+      })
     }
   }, [isSubmitSuccessful, reset])
 
