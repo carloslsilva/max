@@ -8,8 +8,7 @@ import 'react-toastify/dist/ReactToastify.min.css'
 
 export const metadata: Metadata = {
   title: 'Carlos Silva',
-  description:
-    'Electrical engineer majoring in electronics with experience in front-end development, firmware development, and hardware prototyping.'
+  description: 'Frontend developer & Firmware developer.'
 }
 
 const title = Roboto({
