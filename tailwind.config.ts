@@ -4,7 +4,7 @@ import defaultTheme from 'tailwindcss/defaultTheme'
 
 const config: Config = {
   content: [
-    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/ui/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}'
   ],
   plugins: [],

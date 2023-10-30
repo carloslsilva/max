@@ -1,8 +1,8 @@
-import { Footer } from '@components/Footer'
-import { type Metadata } from 'next'
+import { Footer } from '@ui/components/Footer'
+import '@ui/styles/site-globals.css'
+import type { Metadata } from 'next'
 import { Fira_Code, Nunito, Roboto } from 'next/font/google'
-import { type ReactNode } from 'react'
-import './globals.css'
+import type { ReactNode } from 'react'
 
 export const metadata: Metadata = {
   title: 'Carlos Silva',
