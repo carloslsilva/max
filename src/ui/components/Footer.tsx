@@ -23,7 +23,7 @@ export const Footer: FC = () => (
     </p>
     <span className='flex flex-row items-center justify-center gap-3 sm:ml-auto'>
       {socialLinks.map(socialLink => (
-        <SocialLink key={crypto.randomUUID()} socialLink={socialLink} />
+        <SocialLink key={socialLink.icon} socialLink={socialLink} />
       ))}
     </span>
   </Container>

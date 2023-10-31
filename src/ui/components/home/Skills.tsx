@@ -39,7 +39,10 @@ type SkillsProps = {
 export const Skills: FC<SkillsProps> = ({ skillSets }) => (
   <Section title='Skills'>
     {skillSets.map(skillSet => (
-      <SkillSet key={crypto.randomUUID()} skillSet={skillSet} />
+      <SkillSet
+        key={skillSet.title.toLowerCase().replace(/\s+/g, '')}
+        skillSet={skillSet}
+      />
     ))}
   </Section>
 )
