@@ -1,56 +1,65 @@
 'use client'
 
 import { zodResolver } from '@hookform/resolvers/zod'
-import { FC, useEffect } from 'react'
+import { fetchMessage } from '@lib/fetchMessage'
+import { FC, useEffect, useRef } from 'react'
 import { useForm } from 'react-hook-form'
-import { toast } from 'react-toastify'
+import { Id, ToastOptions, toast } from 'react-toastify'
 import { twJoin } from 'tailwind-merge'
-import z from 'zod'
 
-const contactValuesSchema = z.object({
+import { z } from 'zod'
+
+const toastOptions: ToastOptions = {
+  position: 'bottom-right',
+  autoClose: 3000,
+  hideProgressBar: false,
+  closeOnClick: true,
+  pauseOnHover: false,
+  draggable: false,
+  progress: undefined,
+  theme: 'light'
+}
+
+const ContactSchema = z.object({
   name: z.string().min(2).max(64),
   email: z.string().email(),
   message: z.string().min(16).max(512)
 })
 
-type contactValues = z.infer<typeof contactValuesSchema>
+type Contact = z.infer<typeof ContactSchema>
 
 export const ContactForm: FC = () => {
+  const toastId = useRef<Id | null>(null)
+
   const {
     register,
     handleSubmit,
     reset,
     formState: { errors, isSubmitting, isSubmitSuccessful }
-  } = useForm<contactValues>({
-    resolver: zodResolver(contactValuesSchema),
+  } = useForm<Contact>({
+    resolver: zodResolver(ContactSchema),
     defaultValues: { name: '', email: '', message: '' }
   })
 
   useEffect(() => {
+    if (isSubmitting) {
+      toastId.current = toast.info('Sending message', toastOptions)
+    } else {
+      toast.dismiss(toastId.current!)
+    }
+  }, [isSubmitting])
+
+  useEffect(() => {
     if (isSubmitSuccessful) {
       reset()
-      toast.success('Message sent', {
-        position: 'bottom-right',
-        autoClose: 3000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: 'light'
-      })
+      toast.success('Message sent', toastOptions)
     }
   }, [isSubmitSuccessful, reset])
 
   return (
     <form
       className='flex flex-col gap-4'
-      onSubmit={handleSubmit(async ({ name, email, message }) => {
-        await fetch('/api/email', {
-          method: 'POST',
-          body: JSON.stringify({ name, email, message })
-        })
-      })}
+      onSubmit={handleSubmit(async data => await fetchMessage(data))}
     >
       <div className='flex flex-col gap-0.5'>
         <label className='text-sm leading-7 text-primary-600' htmlFor='name'>
