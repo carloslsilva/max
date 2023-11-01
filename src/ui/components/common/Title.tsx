@@ -15,7 +15,7 @@ export const Title: FC<Props> = ({ as, className, children, ...rest }) => {
         'h2' === as &&
           'mb-4 text-2xl font-medium text-primary-800 sm:mb-8 sm:text-3xl',
         'h3' === as && 'mb-3 text-lg text-primary-600',
-        'h4' === as && 'font-base text-xs text-primary-500 sm:text-base',
+        'h4' === as && 'font-sans text-xs text-primary-500 sm:text-base',
         className
       )}
       {...rest}
