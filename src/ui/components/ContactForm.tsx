@@ -1,112 +1,12 @@
 'use client'
 
 import { zodResolver } from '@hookform/resolvers/zod'
-import { FC, HTMLProps, ReactNode, forwardRef, useEffect } from 'react'
+import { FC, useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import { toast } from 'react-toastify'
 import { twJoin } from 'tailwind-merge'
 import * as z from 'zod'
 
-/**
- * Inputs related
- */
-type InputContainerProps = {
-  children: ReactNode
-}
-
-const InputContainer: FC<InputContainerProps> = ({ children }) => (
-  <div className='flex flex-col gap-0.5'>{children}</div>
-)
-
-type InputLabelProps = Omit<HTMLProps<HTMLLabelElement>, 'className'>
-
-const InputLabel: FC<InputLabelProps> = ({ children, ...rest }) => (
-  <label className='text-sm leading-7 text-primary-600' {...rest}>
-    {children}
-  </label>
-)
-
-type InputErrorProps = { children: ReactNode }
-
-export const InputError: FC<InputErrorProps> = ({ children }) => (
-  <>{children && <p className='text-xs text-tomato-500'>{children}</p>}</>
-)
-
-/**
- * Form components related
- */
-const commonClasses = twJoin(
-  'w-full rounded border border-primary-300 bg-primary-100 bg-opacity-50 px-3 py-1 text-base leading-8 text-primary-700',
-  'outline-none transition-colors duration-300 ease-in-out',
-  'focus:border-ultra-violet-500 focus:bg-white focus:ring-2 focus:ring-ultra-violet-200'
-)
-
-type InputTextProps = Omit<HTMLProps<HTMLInputElement>, 'className'> & {
-  label: string
-  error?: string
-}
-
-const InputText = forwardRef<HTMLInputElement, InputTextProps>(function Comp(
-  { label, error, ...rest },
-  ref
-) {
-  return (
-    <InputContainer>
-      <InputLabel htmlFor={rest.name}>{label}:</InputLabel>
-      <input className={commonClasses} ref={ref} id={rest.name} {...rest} />
-      <InputError>{error}</InputError>
-    </InputContainer>
-  )
-})
-
-type TextAreaProps = Omit<HTMLProps<HTMLTextAreaElement>, 'className'> & {
-  label: string
-  error?: string
-}
-
-const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(function Comp(
-  { label, error, ...rest },
-  ref
-) {
-  return (
-    <InputContainer>
-      <InputLabel htmlFor={rest.name}>{label}:</InputLabel>
-      <textarea
-        className={twJoin(commonClasses, 'h-32 resize-none')}
-        ref={ref}
-        id={rest.name}
-        {...rest}
-      />
-      <InputError>{error}</InputError>
-    </InputContainer>
-  )
-})
-
-type ButtonSubmitProps = Omit<
-  HTMLProps<HTMLButtonElement>,
-  'className' | 'type'
->
-
-const SubmitButton: FC<ButtonSubmitProps> = () => (
-  <button
-    className='rounded bg-ultra-violet-500 p-2 text-white hover:bg-ultra-violet-600 disabled:bg-ultra-violet-400'
-    type='submit'
-  >
-    Send
-  </button>
-)
-
-type FormProps = Omit<HTMLProps<HTMLFormElement>, 'className'>
-
-const Form: FC<FormProps> = ({ children, ...rest }) => (
-  <form className='flex flex-col gap-4' {...rest}>
-    {children}
-  </form>
-)
-
-/**
- * Export Component
- */
 const contactValuesSchema = z.object({
   name: z.string().min(2).max(64),
   email: z.string().email(),
@@ -120,7 +20,7 @@ export const ContactForm: FC = () => {
     register,
     handleSubmit,
     reset,
-    formState: { isSubmitting, isSubmitSuccessful, errors }
+    formState: { errors, isSubmitting, isSubmitSuccessful }
   } = useForm<contactValues>({
     resolver: zodResolver(contactValuesSchema),
     defaultValues: { name: '', email: '', message: '' }
@@ -143,7 +43,8 @@ export const ContactForm: FC = () => {
   }, [isSubmitSuccessful, reset])
 
   return (
-    <Form
+    <form
+      className='flex flex-col gap-4'
       onSubmit={handleSubmit(async ({ name, email, message }) => {
         await fetch('/api/email', {
           method: 'POST',
@@ -151,22 +52,67 @@ export const ContactForm: FC = () => {
         })
       })}
     >
-      <InputText
-        label='Name'
-        error={errors.name?.message}
-        {...register('name')}
-      />
-      <InputText
-        label='Email'
-        error={errors.email?.message}
-        {...register('email')}
-      />
-      <TextArea
-        label='Message'
-        error={errors.message?.message}
-        {...register('message')}
-      />
-      <SubmitButton disabled={isSubmitting}>Send</SubmitButton>
-    </Form>
+      <div className='flex flex-col gap-0.5'>
+        <label className='text-sm leading-7 text-primary-600' htmlFor='name'>
+          Name:
+        </label>
+        <input
+          className={twJoin(
+            'w-full rounded border border-primary-300 bg-primary-100 bg-opacity-50 px-3 py-1 text-base leading-8 text-primary-700',
+            'outline-none transition-colors duration-300 ease-in-out',
+            'focus:border-ultra-violet focus:bg-white focus:ring-2 focus:ring-ultra-violet-200'
+          )}
+          autoComplete='false'
+          id='name'
+          {...register('name')}
+        />
+        {errors.name?.message && (
+          <p className='text-xs text-tomato-500'>{errors.name?.message}</p>
+        )}
+      </div>
+      <div className='flex flex-col gap-0.5'>
+        <label className='text-sm leading-7 text-primary-600' htmlFor='email'>
+          Email:
+        </label>
+        <input
+          className={twJoin(
+            'w-full rounded border border-primary-300 bg-primary-100 bg-opacity-50 px-3 py-1 text-base leading-8 text-primary-700',
+            'outline-none transition-colors duration-300 ease-in-out',
+            'focus:border-ultra-violet focus:bg-white focus:ring-2 focus:ring-ultra-violet-200'
+          )}
+          autoComplete='false'
+          id='email'
+          {...register('email')}
+        />
+        {errors.email?.message && (
+          <p className='text-xs text-tomato-500'>{errors.email?.message}</p>
+        )}
+      </div>
+      <div className='flex flex-col gap-0.5'>
+        <label className='text-sm leading-7 text-primary-600' htmlFor='message'>
+          Message:
+        </label>
+        <textarea
+          className={twJoin(
+            'w-full rounded border border-primary-300 bg-primary-100 bg-opacity-50 px-3 py-1 text-base leading-8 text-primary-700',
+            'outline-none transition-colors duration-300 ease-in-out',
+            'focus:border-ultra-violet focus:bg-white focus:ring-2 focus:ring-ultra-violet-200',
+            'h-32 resize-none'
+          )}
+          id='message'
+          {...register('message')}
+        />
+        {errors.message?.message && (
+          <p className='text-xs text-tomato-500'>{errors.message?.message}</p>
+        )}
+      </div>
+      <button
+        className='rounded bg-ultra-violet p-2 text-white hover:bg-ultra-violet-600 disabled:bg-ultra-violet-400'
+        type='submit'
+        disabled={isSubmitting}
+      >
+        Send
+      </button>
+    </form>
   )
 }
