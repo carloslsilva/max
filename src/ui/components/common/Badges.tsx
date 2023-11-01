@@ -11,7 +11,7 @@ export const Badges: FC<Props> = ({ tags, className }) => (
     {tags.map((tag, index) => (
       <span
         key={`${tag}-${index}`}
-        className='rounded  bg-primary-100 px-2 py-1 text-xs text-primary-500'
+        className='rounded bg-primary-100 px-2 py-1 text-xs text-primary-500'
       >
         {tag}
       </span>
