@@ -5,7 +5,7 @@ import { FC, useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import { toast } from 'react-toastify'
 import { twJoin } from 'tailwind-merge'
-import * as z from 'zod'
+import z from 'zod'
 
 const contactValuesSchema = z.object({
   name: z.string().min(2).max(64),
@@ -67,7 +67,9 @@ export const ContactForm: FC = () => {
           {...register('name')}
         />
         {errors.name?.message && (
-          <p className='text-xs text-tomato-500'>{errors.name?.message}</p>
+          <p className='text-xs text-tomato-500'>
+            {errors.name?.message.replace(/String/g, 'Name')}
+          </p>
         )}
       </div>
       <div className='flex flex-col gap-0.5'>
@@ -103,7 +105,9 @@ export const ContactForm: FC = () => {
           {...register('message')}
         />
         {errors.message?.message && (
-          <p className='text-xs text-tomato-500'>{errors.message?.message}</p>
+          <p className='text-xs text-tomato-500'>
+            {errors.message?.message.replace(/String/g, 'Message')}
+          </p>
         )}
       </div>
       <button
