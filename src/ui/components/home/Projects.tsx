@@ -12,7 +12,7 @@ type ProjectImageProps = {
 
 const ProjectImage: FC<ProjectImageProps> = ({ src, alt }) => {
   return (
-    <div className='overflow-hidden rounded shadow-xl sm:w-11/12'>
+    <div className='w-10/12 overflow-hidden rounded shadow-xl sm:w-11/12'>
       <Image
         src={src}
         title={alt}
@@ -47,11 +47,11 @@ type ProjectProps = {
 }
 
 const Project: FC<ProjectProps> = ({ project }) => (
-  <div className='flex flex-col-reverse gap-6 py-8 sm:grid sm:grid-cols-12'>
-    <div className='flex w-full items-center justify-center sm:col-start-1 sm:col-end-4'>
+  <div className='flex flex-col-reverse gap-6 py-8 sm:flex-row'>
+    <div className='flex items-center justify-center sm:w-3/12'>
       <ProjectImage src={project.coverImage} alt={project.title} />
     </div>
-    <div className='sm:col-start-4 sm:col-end-13'>
+    <div className='sm:w-9/12'>
       <div className='flex flex-row justify-start'>
         <Title className='my-0 mr-4' as='h3'>
           {project.title}
