@@ -1,10 +1,10 @@
-export type SkillType = {
+export type Skill = {
   id: string
   title: string
   slug: string
 }
 
-export type SkillSetType = {
+export type SkillSet = {
   title: string
-  skills: SkillType[]
+  skills: Skill[]
 }

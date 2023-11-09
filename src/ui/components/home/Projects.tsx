@@ -1,4 +1,4 @@
-import type { ProjectType } from '@lib/types'
+import type { Project as ProjectType } from '@lib/types'
 import { Badges, Icon, Section, Text, Title } from '@ui/components/common'
 import Image from 'next/image'
 import Link from 'next/link'

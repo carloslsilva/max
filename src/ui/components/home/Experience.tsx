@@ -1,4 +1,4 @@
-import type { JobType } from '@lib/types'
+import type { Job as JobType } from '@lib/types'
 import { formatDateRange } from '@lib/utils'
 import { Badges, Section, Text, Title } from '@ui/components/common'
 import type { FC } from 'react'

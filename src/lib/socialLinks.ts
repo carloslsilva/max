@@ -1,6 +1,6 @@
-import type { SocialLinkType } from './types'
+import type { SocialLink } from './types'
 
-export const socialLinks: SocialLinkType[] = [
+export const socialLinks: SocialLink[] = [
   {
     title: 'GitHub',
     url: 'https://github.com/carloslsilva',
