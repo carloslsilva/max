@@ -1,9 +1,9 @@
-import type { SocialLink } from '@lib/types'
+import type { SocialLink as SocialLinkType } from '@lib/types'
 import { FC } from 'react'
 import { Icon } from './Icon'
 
 type Props = {
-  socialLink: SocialLink
+  socialLink: SocialLinkType
 }
 
 export const SocialLink: FC<Props> = ({ socialLink }) => (
