@@ -5,6 +5,7 @@ import '@ui/styles/site-globals.css'
 import { Analytics } from '@vercel/analytics/react'
 import type { Metadata } from 'next'
 import type { ReactNode } from 'react'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 
 export const metadata: Metadata = {
   title: 'Carlos Silva',
@@ -21,6 +22,7 @@ export default function Layout({ children }: { children: ReactNode }) {
         <Footer />
         <ToastContainer />
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   )
