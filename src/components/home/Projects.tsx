@@ -1,5 +1,5 @@
+import { Badges, Icon, Section, Text, Title } from '@/components/common'
 import type { Project as ProjectType } from '@/lib/types'
-import { Badges, Icon, Section, Text, Title } from '@/ui/components/common'
 import Image from 'next/image'
 import Link from 'next/link'
 import type { FC, ReactNode } from 'react'

@@ -1,8 +1,8 @@
+import { Footer } from '@/components/Footer'
+import { ToastContainer } from '@/components/ToastContainer'
 import '@/styles/site-globals.css'
-import { Footer } from '@/ui/components/Footer'
-import { ToastContainer } from '@/ui/components/ToastContainer'
 import { mono, sans, title } from '@/ui/fonts'
-import { SpeedInsights } from '@vercel/speed-insights/next'
+import { Analytics } from '@vercel/analytics/react'
 import type { Metadata } from 'next'
 import type { ReactNode } from 'react'
 
@@ -20,7 +20,7 @@ export default function Layout({ children }: { children: ReactNode }) {
         {children}
         <Footer />
         <ToastContainer />
-        <SpeedInsights />
+        <Analytics />
       </body>
     </html>
   )

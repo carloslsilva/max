@@ -1,4 +1,4 @@
-import type { SocialLink as SocialLinkType } from '@lib/types'
+import type { SocialLink as SocialLinkType } from '@/lib/types'
 import { FC } from 'react'
 import { Icon } from './Icon'
 

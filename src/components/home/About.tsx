@@ -1,5 +1,5 @@
 import avatar from '@/assets/avatar.jpg'
-import { Section, Text, Title } from '@/ui/components/common'
+import { Section, Text, Title } from '@/components/common'
 import Image from 'next/image'
 
 export const About = () => (

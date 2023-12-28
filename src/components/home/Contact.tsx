@@ -1,5 +1,5 @@
-import { Section, Text } from '@/ui/components/common'
-import { ContactForm } from '@/ui/components/ContactForm'
+import { ContactForm } from '@/components/ContactForm'
+import { Section, Text } from '@/components/common'
 import type { FC } from 'react'
 
 export const Contact: FC = () => (

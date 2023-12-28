@@ -3,10 +3,7 @@ import colors from 'tailwindcss/colors'
 import defaultTheme from 'tailwindcss/defaultTheme'
 
 const config: Config = {
-  content: [
-    './src/ui/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/app/**/*.{js,ts,jsx,tsx,mdx}'
-  ],
+  content: ['./src/**/*.{js,ts,jsx,tsx,mdx}'],
   plugins: [],
   theme: {
     extend: {
