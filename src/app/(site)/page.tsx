@@ -1,6 +1,6 @@
-import { client } from '@/lib/sanity/client'
-import * as queries from '@/lib/sanity/queries'
 import type { Job, Project, SkillSet } from '@/lib/types'
+import { client } from '@/sanity/client'
+import * as queries from '@/sanity/queries'
 import {
   About,
   Contact,
