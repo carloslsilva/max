@@ -4,7 +4,7 @@ export type Job = {
   company: string
   location: string
   startDate: string
-  endDate: string
+  endDate: string | null
   description: string
   skills: string[]
 }

@@ -1,20 +1,17 @@
-import { client } from '@lib/sanity/client'
-import * as queries from '@lib/sanity/queries'
-import type { Job, Project, SkillSet } from '@lib/types'
-import {
-  About,
-  Contact,
-  Experience,
-  Projects,
-  Skills
-} from '@ui/components/home'
+import { About, Contact, Experience, Projects, Skills } from '@/components/home'
+import type { Job, Project, SkillSet } from '@/lib/types'
+import { client } from '@/sanity/client'
+import * as queries from '@/sanity/queries'
 
 const clientOptions = {
   next: { revalidate: 3600 }
 }
 
 export default async function Home() {
-  const jobs = await client.fetch<Job[]>(queries.getJobsQuery, clientOptions)
+  const unsortedJobs = await client.fetch<Job[]>(
+    queries.getJobsQuery,
+    clientOptions
+  )
 
   const projects = await client.fetch<Project[]>(
     queries.getProjectsQuery,
@@ -44,6 +41,18 @@ export default async function Home() {
       )
     }
   ]
+
+  const jobs = unsortedJobs.sort((a, b) => {
+    if (a.endDate === null && b.endDate === null) {
+      return (new Date(b.startDate) as any) - (new Date(a.startDate) as any)
+    } else if (a.endDate === null) {
+      return -1
+    } else if (b.endDate === null) {
+      return 1
+    } else {
+      return (new Date(b.endDate) as any) - (new Date(a.endDate) as any)
+    }
+  })
 
   return (
     <>

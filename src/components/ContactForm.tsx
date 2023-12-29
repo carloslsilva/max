@@ -1,7 +1,7 @@
 'use client'
 
+import { fetchMessage } from '@/lib/fetchMessage'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { fetchMessage } from '@lib/fetchMessage'
 import { FC, useEffect, useRef } from 'react'
 import { useForm } from 'react-hook-form'
 import { Id, ToastOptions, toast } from 'react-toastify'

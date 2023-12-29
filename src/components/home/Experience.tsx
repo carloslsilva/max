@@ -1,6 +1,6 @@
-import type { Job as JobType } from '@lib/types'
-import { formatDateRange } from '@lib/utils'
-import { Badges, Section, Text, Title } from '@ui/components/common'
+import { Badges, Section, Text, Title } from '@/components/common'
+import type { Job as JobType } from '@/lib/types'
+import { formatDateRange } from '@/lib/utils'
 import type { FC } from 'react'
 import Markdown from 'react-markdown'
 
