@@ -36,7 +36,7 @@ export default function Layout({ children }: { children: ReactNode }) {
       <body
         className={`${title.variable} ${sans.variable} ${mono.variable} font-sans text-primary-500`}
       >
-        {children}
+        <main>{children}</main>
         <Footer />
         <ToastContainer />
         <Analytics />
