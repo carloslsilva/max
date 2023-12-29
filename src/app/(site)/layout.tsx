@@ -1,7 +1,7 @@
 import { Footer } from '@/components/Footer'
 import { ToastContainer } from '@/components/ToastContainer'
+import { mono, sans, title } from '@/fonts'
 import '@/styles/site-globals.css'
-import { mono, sans, title } from '@/ui/fonts'
 import { Analytics } from '@vercel/analytics/react'
 import type { Metadata } from 'next'
 import type { ReactNode } from 'react'

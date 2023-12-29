@@ -11,7 +11,6 @@ export const Footer: FC = () => (
       <span className='text-xl'>CS</span>
     </a>
     <p className='text-sm text-primary-500 sm:ml-4 sm:border-l-2 sm:border-gray-200 sm:pl-4'>
-      2023
       <a
         className='ml-1 font-semibold text-primary-900'
         href='https://twitter.com/carloslsilva'
