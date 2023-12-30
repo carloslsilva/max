@@ -1,6 +1,6 @@
 import avatar from '@/assets/avatar.jpg'
-import { Section, Text, Title } from '@/components/common'
 import Image from 'next/image'
+import { Section, Text, Title } from '../common'
 
 export const About = () => (
   <Section>

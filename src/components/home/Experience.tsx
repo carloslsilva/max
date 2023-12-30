@@ -1,8 +1,8 @@
-import { Badges, Section, Text, Title } from '@/components/common'
 import type { Job as JobType } from '@/lib/types'
 import { formatDateRange } from '@/lib/utils'
 import type { FC } from 'react'
 import Markdown from 'react-markdown'
+import { Badges, Section, Text, Title } from '../common'
 
 type JobProps = {
   job: JobType

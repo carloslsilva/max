@@ -1,6 +1,6 @@
-import { Container, SocialLink } from '@/components/common'
 import { socialLinks } from '@/lib/socialLinks'
 import type { FC } from 'react'
+import { Container, SocialLink } from './common'
 
 export const Footer: FC = () => (
   <Container

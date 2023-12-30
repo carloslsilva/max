@@ -1,6 +1,6 @@
-import { ContactForm } from '@/components/ContactForm'
-import { Section, Text } from '@/components/common'
 import type { FC } from 'react'
+import { ContactForm } from '../ContactForm'
+import { Section, Text } from '../common'
 
 export const Contact: FC = () => (
   <Section title='Contact'>
