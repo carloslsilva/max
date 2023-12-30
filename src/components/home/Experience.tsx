@@ -1,5 +1,5 @@
+import { formatDateRange } from '@/lib/formatDateRange'
 import type { Job as JobType } from '@/lib/types'
-import { formatDateRange } from '@/lib/utils'
 import type { FC } from 'react'
 import Markdown from 'react-markdown'
 import { Badges, Section, Text, Title } from '../common'

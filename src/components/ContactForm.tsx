@@ -1,6 +1,6 @@
 'use client'
 
-import { useContactForm } from '@/lib/useContactForm'
+import { useContactForm } from '@/hooks/useContactForm'
 import { FC } from 'react'
 import { twJoin } from 'tailwind-merge'
 

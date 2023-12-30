@@ -1,9 +1,9 @@
+import { fetchMessage } from '@/lib/fetchMessage'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useEffect, useRef } from 'react'
 import { useForm } from 'react-hook-form'
 import { Id, ToastOptions, toast } from 'react-toastify'
 import { z } from 'zod'
-import { fetchMessage } from './fetchMessage'
 
 const toastOptions: ToastOptions = {
   position: 'bottom-right',
