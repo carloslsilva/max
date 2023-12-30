@@ -7,7 +7,7 @@ export const About = () => (
     <div className='mt-16 flex flex-col items-center md:flex-row'>
       <div className='mb-10 w-5/6 md:mb-0 md:w-1/2 lg:w-full lg:max-w-lg'>
         <Image
-          className='rounded-xl  object-cover object-center shadow-2xl'
+          className='rounded-xl object-cover object-center shadow-2xl'
           priority={true}
           src={avatar}
           alt='avatar'

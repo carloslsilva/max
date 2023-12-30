@@ -6,7 +6,6 @@ import { FC, useEffect, useRef } from 'react'
 import { useForm } from 'react-hook-form'
 import { Id, ToastOptions, toast } from 'react-toastify'
 import { twJoin } from 'tailwind-merge'
-
 import { z } from 'zod'
 
 const toastOptions: ToastOptions = {
