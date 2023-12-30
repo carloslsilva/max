@@ -1,65 +1,14 @@
 'use client'
 
-import { fetchMessage } from '@/lib/fetchMessage'
-import { zodResolver } from '@hookform/resolvers/zod'
-import { FC, useEffect, useRef } from 'react'
-import { useForm } from 'react-hook-form'
-import { Id, ToastOptions, toast } from 'react-toastify'
+import { useContactForm } from '@/lib/useContactForm'
+import { FC } from 'react'
 import { twJoin } from 'tailwind-merge'
-import { z } from 'zod'
-
-const toastOptions: ToastOptions = {
-  position: 'bottom-right',
-  autoClose: 3000,
-  hideProgressBar: false,
-  closeOnClick: true,
-  pauseOnHover: false,
-  draggable: false,
-  progress: undefined,
-  theme: 'light'
-}
-
-const ContactSchema = z.object({
-  name: z.string().min(2).max(64),
-  email: z.string().email(),
-  message: z.string().min(16).max(512)
-})
-
-type Contact = z.infer<typeof ContactSchema>
 
 export const ContactForm: FC = () => {
-  const toastId = useRef<Id | null>(null)
-
-  const {
-    register,
-    handleSubmit,
-    reset,
-    formState: { errors, isSubmitting, isSubmitSuccessful }
-  } = useForm<Contact>({
-    resolver: zodResolver(ContactSchema),
-    defaultValues: { name: '', email: '', message: '' }
-  })
-
-  useEffect(() => {
-    if (isSubmitting) {
-      toastId.current = toast.info('Sending message', toastOptions)
-    } else {
-      toast.dismiss(toastId.current!)
-    }
-  }, [isSubmitting])
-
-  useEffect(() => {
-    if (isSubmitSuccessful) {
-      reset()
-      toast.success('Message sent', toastOptions)
-    }
-  }, [isSubmitSuccessful, reset])
+  const { register, errors, isSubmitting, onSubmit } = useContactForm()
 
   return (
-    <form
-      className='flex flex-col gap-4'
-      onSubmit={handleSubmit(async data => await fetchMessage(data))}
-    >
+    <form className='flex flex-col gap-4' onSubmit={onSubmit}>
       <div className='flex flex-col gap-0.5'>
         <label className='text-sm leading-7 text-primary-600' htmlFor='name'>
           Name:
@@ -75,9 +24,7 @@ export const ContactForm: FC = () => {
           {...register('name')}
         />
         {errors.name?.message && (
-          <p className='text-xs text-tomato-500'>
-            {errors.name?.message.replace(/String/g, 'Name')}
-          </p>
+          <p className='text-xs text-tomato-500'>{errors.name?.message}</p>
         )}
       </div>
       <div className='flex flex-col gap-0.5'>
@@ -113,9 +60,7 @@ export const ContactForm: FC = () => {
           {...register('message')}
         />
         {errors.message?.message && (
-          <p className='text-xs text-tomato-500'>
-            {errors.message?.message.replace(/String/g, 'Message')}
-          </p>
+          <p className='text-xs text-tomato-500'>{errors.message?.message}</p>
         )}
       </div>
       <button
