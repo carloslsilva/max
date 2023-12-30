@@ -27,7 +27,8 @@ const mono = Fira_Code({
 
 export const metadata: Metadata = {
   title: 'Carlos Silva',
-  description: 'Frontend developer & Firmware developer.'
+  description:
+    'Electrical Engineering major specializing in Electronics, with experience in software development and embedded systems. I have expertise in web development using technologies such as React, Next.js, and Node.js.'
 }
 
 export default function Layout({ children }: { children: ReactNode }) {

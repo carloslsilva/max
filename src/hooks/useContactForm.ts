@@ -31,22 +31,27 @@ export const useContactForm = () => {
     register,
     handleSubmit,
     reset,
-    formState: { errors, isSubmitting, isSubmitSuccessful }
+    formState: { errors, isValid, isSubmitting, isSubmitSuccessful }
   } = useForm<Contact>({
     resolver: zodResolver(ContactSchema),
     defaultValues: { name: '', email: '', message: '' }
   })
 
   useEffect(() => {
-    if (isSubmitting) {
+    if (isSubmitting && isValid) {
       toastId.current = toast.info('Sending message', toastOptions)
-    } else {
+    } else if (!isSubmitting && toastId.current) {
       toast.dismiss(toastId.current!)
+      toastId.current = null
     }
-  }, [isSubmitting])
+  }, [isSubmitting, isValid])
 
   useEffect(() => {
     if (isSubmitSuccessful) {
+      const dialog = document.getElementById(
+        'contact-dialog'
+      ) as HTMLDialogElement
+      if (dialog !== null) dialog.close()
       toast.success('Message sent', toastOptions)
       reset()
     }
