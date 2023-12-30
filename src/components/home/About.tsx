@@ -19,11 +19,11 @@ export const About = () => (
       <div className='flex flex-col items-center justify-center text-center md:w-1/2 md:items-start md:pl-16 md:text-left lg:flex-grow lg:pl-24'>
         <Title as='h1'>Carlos Silva</Title>
         <Text variant='bigger'>
-          I am an Electrical Engineering major specializing in Electronics, with
-          experience in software development and embedded systems. I have
-          expertise in web development using technologies such as React,
-          Next.js, and Node.js. I am a dedicated professional committed to
-          creating innovative and efficient solutions that meet customer needs.
+          I am an Electrical Engineering major in Electronics, with experience
+          in software development and embedded systems. I have expertise in web
+          development using technologies such as React, Next.js, and Node.js. I
+          am a dedicated professional committed to creating innovative and
+          efficient solutions that meet customer needs.
         </Text>
         <div className='mt-6 flex justify-center gap-4'>
           <ContactButton />

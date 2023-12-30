@@ -1,6 +1,5 @@
-import { socialLinks } from '@/lib/socialLinks'
 import type { FC } from 'react'
-import { Container, SocialLink } from './common'
+import { Container, SocialLinks } from './common'
 
 export const Footer: FC = () => (
   <Container
@@ -20,10 +19,6 @@ export const Footer: FC = () => (
         @carloslsilva
       </a>
     </p>
-    <span className='flex flex-row items-center justify-center gap-3 sm:ml-auto'>
-      {socialLinks.map(socialLink => (
-        <SocialLink key={socialLink.icon} socialLink={socialLink} />
-      ))}
-    </span>
+    <SocialLinks className='sm:ml-auto' />
   </Container>
 )
