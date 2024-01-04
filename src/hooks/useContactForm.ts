@@ -17,9 +17,15 @@ const toastOptions: ToastOptions = {
 }
 
 const ContactSchema = z.object({
-  name: z.string().min(2).max(64),
-  email: z.string().email(),
-  message: z.string().min(16).max(512)
+  name: z
+    .string()
+    .min(2, { message: 'Name must be at least 2 characters long' })
+    .max(64, { message: 'Name cannot exceed 64 characters' }),
+  email: z.string().email({ message: 'Invalid email address' }),
+  message: z
+    .string()
+    .min(16, { message: 'Message must be at least 16 characters long' })
+    .max(512, { message: 'Message cannot exceed 512 characters' })
 })
 
 type Contact = z.infer<typeof ContactSchema>
