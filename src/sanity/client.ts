@@ -8,5 +8,5 @@ export const client = createClient({
   projectId,
   dataset,
   apiVersion,
-  useCdn: dataset === 'production'
+  useCdn: false
 })
