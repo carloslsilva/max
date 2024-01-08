@@ -2,7 +2,7 @@ import { About, Contact, Experience, Projects, Skills } from '@/components/home'
 import { fetchHomeContent } from '@/lib/fetchHomeContent'
 import { SkillSet } from '@/lib/types'
 
-export const revalidate = 10
+export const revalidate = 3600
 
 export default async function Home() {
   const { jobs, projects, frontendSkills, backendSkills, embeddedSkills } =
