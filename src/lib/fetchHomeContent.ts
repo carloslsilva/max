@@ -4,7 +4,7 @@ import * as queries from '@/sanity/queries'
 import { sortJobs } from './sortJobs'
 
 const clientOptions = {
-  next: { revalidate: 30 * 60 }
+  next: { revalidate: 10 * 60 }
 }
 
 export const fetchHomeContent = async () => {
