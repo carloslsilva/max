@@ -3,10 +3,6 @@ import { client } from '@/sanity/client'
 import * as queries from '@/sanity/queries'
 import { sortJobs } from './sortJobs'
 
-const clientOptions = {
-  next: { revalidate: 10 }
-}
-
 export const fetchHomeContent = async () => {
   const [
     unsortedJobs,
@@ -15,20 +11,11 @@ export const fetchHomeContent = async () => {
     backendSkills,
     embeddedSkills
   ] = await Promise.all([
-    client.fetch<Job[]>(queries.getJobsQuery, clientOptions),
-    client.fetch<Project[]>(queries.getProjectsQuery, clientOptions),
-    client.fetch(
-      queries.getSkillSetQuery('Frontend Development'),
-      clientOptions
-    ),
-    client.fetch(
-      queries.getSkillSetQuery('Backend Development'),
-      clientOptions
-    ),
-    client.fetch(
-      queries.getSkillSetQuery('Embedded Development'),
-      clientOptions
-    )
+    client.fetch<Job[]>(queries.getJobsQuery),
+    client.fetch<Project[]>(queries.getProjectsQuery),
+    client.fetch(queries.getSkillSetQuery('Frontend Development')),
+    client.fetch(queries.getSkillSetQuery('Backend Development')),
+    client.fetch(queries.getSkillSetQuery('Embedded Development'))
   ])
 
   return {
