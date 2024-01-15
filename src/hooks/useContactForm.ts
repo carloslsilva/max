@@ -63,7 +63,8 @@ export const useContactForm = () => {
     }
   }, [isSubmitSuccessful, reset])
 
-  const onSubmit = handleSubmit(async data => await fetchMessage(data))
+  const sendMail = fetchMessage.bind(null)
+  const onSubmit = handleSubmit(async data => await sendMail(data))
 
   return {
     register,
