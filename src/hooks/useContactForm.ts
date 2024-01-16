@@ -1,4 +1,4 @@
-import { fetchMessage } from '@/lib/fetchMessage'
+import { sendMail } from '@/lib/sendMail'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useEffect, useRef } from 'react'
 import { useForm } from 'react-hook-form'
@@ -63,7 +63,6 @@ export const useContactForm = () => {
     }
   }, [isSubmitSuccessful, reset])
 
-  const sendMail = fetchMessage.bind(null)
   const onSubmit = handleSubmit(async data => await sendMail(data))
 
   return {
