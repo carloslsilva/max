@@ -5,7 +5,7 @@ import { SkillSet } from '@/lib/types'
 export const revalidate = 3600
 
 export default async function Home() {
-  const { jobs, projects, frontendSkills, backendSkills, embeddedSkills } =
+  const { bio, jobs, projects, frontendSkills, backendSkills, embeddedSkills } =
     await fetchHomeContent()
 
   const skillSets: SkillSet[] = [
@@ -16,7 +16,7 @@ export default async function Home() {
 
   return (
     <>
-      <About />
+      <About bio={bio} />
       <Experience jobs={jobs} />
       <Skills skillSets={skillSets} />
       <Projects projects={projects} />

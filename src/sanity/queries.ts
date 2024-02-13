@@ -1,5 +1,12 @@
 import { groq } from 'next-sanity'
 
+export const getBio = groq`
+  *[_type == 'author' && slug.current == 'carlos'][0] {
+    name,
+    bio
+  }
+`
+
 export const getJobsQuery = groq`
   *[_type == "job"] {
     "id": _id,

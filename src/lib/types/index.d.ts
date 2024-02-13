@@ -1,3 +1,4 @@
+export * from './bio'
 export * from './job'
 export * from './post'
 export * from './project'
