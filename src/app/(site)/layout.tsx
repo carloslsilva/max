@@ -28,7 +28,7 @@ const mono = Fira_Code({
 export const metadata: Metadata = {
   title: 'Carlos Silva',
   description:
-    'Electrical Engineering major in Electronics, with experience in software development and embedded systems. I have expertise in web development using technologies such as React, Next.js, and Node.js.'
+    'I am an Electrical Engineer with expertise in software, web, and embedded systems development. In web, my focus lies in technologies like React, Next.js, and Node.js. Throughout my freelance and corporate roles, I have contributed to diverse solutions, gaining experience from design to software implementation. I am dedicated to delivering robust and high-performance solutions.'
 }
 
 export default function Layout({ children }: { children: ReactNode }) {
