@@ -1,6 +1,7 @@
 import type { Bio } from '@/lib/types'
 import Image from 'next/image'
 import { FC } from 'react'
+import Markdown from 'react-markdown'
 import { ContactButton } from '../ContactButton'
 import { ResumeButton } from '../ResumeButton'
 import { Section, Text, Title } from '../common'
@@ -24,7 +25,7 @@ export const About: FC<Props> = ({ bio }) => (
       </div>
       <div className='flex flex-col items-center justify-center text-center md:w-1/2 md:items-start md:pl-16 md:text-left lg:flex-grow lg:pl-24'>
         <Title as='h1'>{bio.name}</Title>
-        {/* <Markdown
+        <Markdown
           components={{
             p(props) {
               return <Text variant='bigger'>{props.children}</Text>
@@ -32,9 +33,8 @@ export const About: FC<Props> = ({ bio }) => (
           }}
         >
           {bio.resume}
-        </Markdown> */}
-        <Text variant='bigger'>{bio.resume}</Text>
-        <div className='mt-6 flex justify-center gap-4'>
+        </Markdown>
+        <div className='mt-4 flex justify-center gap-4 lg:mt-6'>
           <ContactButton />
           <ResumeButton />
         </div>

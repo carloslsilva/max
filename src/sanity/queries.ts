@@ -1,9 +1,9 @@
 import { groq } from 'next-sanity'
 
-export const getBio = groq`
+export const getBioQuery = groq`
   *[_type == 'author' && slug.current == 'carlos'][0] {
     name,
-    bio
+    "resume": bio
   }
 `
 

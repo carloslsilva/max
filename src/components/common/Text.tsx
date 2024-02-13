@@ -13,9 +13,10 @@ export const Text: FC<Props> = ({
 }) => (
   <p
     className={twMerge(
-      variant == 'bigger' && 'text-lg leading-relaxed',
-      variant == 'normal' && 'text-base leading-relaxed',
-      variant == 'compressed' && 'text-base leading-normal',
+      variant == 'bigger' &&
+        'text-pretty text-base sm:text-base sm:leading-normal lg:text-lg lg:leading-relaxed',
+      variant == 'normal' && 'text-pretty text-base leading-relaxed',
+      variant == 'compressed' && 'text-pretty text-base leading-normal',
       className
     )}
     {...rest}

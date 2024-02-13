@@ -12,7 +12,7 @@ export const fetchHomeContent = async () => {
     backendSkills,
     embeddedSkills
   ] = await Promise.all([
-    client.fetch<Bio>(queries.getBio),
+    client.fetch<Bio>(queries.getBioQuery),
     client.fetch<Job[]>(queries.getJobsQuery),
     client.fetch<Project[]>(queries.getProjectsQuery),
     client.fetch(queries.getSkillSetQuery('Frontend Development')),
@@ -21,6 +21,7 @@ export const fetchHomeContent = async () => {
   ])
 
   return {
+    bio,
     jobs: sortJobs(unsortedJobs),
     projects,
     frontendSkills,
