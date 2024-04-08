@@ -18,7 +18,11 @@
     "@vercel/analytics": "1.2.2",
     "easymde": "2.18.0",
     "next": "14.1.4",
+<<<<<<< HEAD
+    "next-sanity": "8.5.3",
+=======
     "next-sanity": "8.5.5",
+>>>>>>> dev
     "nodemailer": "6.9.13",
     "react": "18.2.0",
     "react-dom": "18.2.0",
@@ -27,7 +31,10 @@
     "react-toastify": "10.0.5",
     "sanity": "3.36.4",
     "sanity-plugin-markdown": "4.1.1",
+<<<<<<< HEAD
+=======
     "styled-components": "^6.1.8",
+>>>>>>> dev
     "tailwind-merge": "2.2.2",
     "zod": "3.22.4"
   },
