@@ -8,6 +8,5 @@ export const client = createClient({
   projectId,
   dataset,
   apiVersion,
-  useCdn: false,
-  studioUrl: '/admin'
+  useCdn: false
 })
