@@ -41,6 +41,7 @@ import {
   Twitter,
   TypeScript,
   Upwork,
+  WordPress,
   X,
   YouTube
 } from './Icons'
@@ -95,6 +96,7 @@ export const Icon: FC<Props> = ({ name }) => {
     twitter: <Twitter />,
     typescript: <TypeScript />,
     upwork: <Upwork />,
+    wordpress: <WordPress />,
     x: <X />,
     youtube: <YouTube />
   }
