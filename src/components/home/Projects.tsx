@@ -3,28 +3,44 @@ import Image from 'next/image'
 import Link from 'next/link'
 import type { FC, ReactNode } from 'react'
 import Markdown from 'react-markdown'
+import { twJoin } from 'tailwind-merge'
 import { Badges, Icon, Section, Text, Title } from '../common'
 
 type ProjectImageProps = {
-  src: string
-  alt: string
+  project: ProjectType
 }
 
-const ProjectImage: FC<ProjectImageProps> = ({ src, alt }) => {
-  return (
-    <div className='w-10/12 overflow-hidden rounded shadow-xl sm:w-11/12'>
+const ProjectImage: FC<ProjectImageProps> = ({ project }) => {
+  const url = project.externalUrl || project.githubUrl
+
+  const Img = () => (
+    <div
+      className={twJoin(
+        'mx-auto w-10/12 overflow-hidden rounded shadow-xl sm:w-11/12 md:ml-0',
+        url &&
+          'duration-200 ease-in-out hover:scale-105 hover:bg-white hover:shadow-2xl'
+      )}
+    >
       <Image
-        src={src}
-        title={alt}
-        alt={alt}
+        src={project.coverImage}
+        title={project.title}
+        alt={project.title}
         width={1200}
         height={630}
         placeholder='blur'
-        blurDataURL={src}
+        blurDataURL={project.coverImage}
         quality={25}
         className='h-auto w-max object-cover'
       />
     </div>
+  )
+
+  return url ? (
+    <Link href={url} target='_blank' rel='noopener noreferrer'>
+      <Img />
+    </Link>
+  ) : (
+    <Img />
   )
 }
 
@@ -49,7 +65,7 @@ type ProjectProps = {
 const Project: FC<ProjectProps> = ({ project }) => (
   <div className='flex flex-col-reverse gap-6 py-8 sm:flex-row'>
     <div className='flex items-center justify-center sm:w-3/12'>
-      <ProjectImage src={project.coverImage} alt={project.title} />
+      <ProjectImage project={project} />
     </div>
     <div className='sm:w-9/12'>
       <div className='flex flex-row justify-start'>
