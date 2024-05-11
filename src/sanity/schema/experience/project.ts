@@ -26,6 +26,13 @@ export const project = defineType({
       initialValue: false
     }),
     defineField({
+      title: 'Order',
+      name: 'order',
+      type: 'number',
+      initialValue: 0,
+      validation: Rule => Rule.required().integer().positive()
+    }),
+    defineField({
       title: 'Github URL',
       name: 'githubUrl',
       type: 'url'
@@ -38,8 +45,7 @@ export const project = defineType({
     defineField({
       title: 'Description',
       name: 'description',
-      type: 'markdown',
-      validation: Rule => Rule.required().error('Description is required')
+      type: 'markdown'
     }),
     defineField({
       title: 'Skills',
@@ -47,5 +53,17 @@ export const project = defineType({
       type: 'array',
       of: [{ type: 'reference', to: { type: 'skill' } }]
     })
+  ],
+  orderings: [
+    {
+      title: 'by order',
+      name: 'order',
+      by: [
+        {
+          field: 'order',
+          direction: 'desc'
+        }
+      ]
+    }
   ]
 })

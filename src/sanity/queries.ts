@@ -22,7 +22,7 @@ export const getJobsQuery = groq`
 `
 
 export const getProjectsQuery = groq`
-  *[_type == "project"] {
+  *[_type == "project"] | order(order desc) | order(pinned desc) {
     "id": _id,
     title,
     description,
