@@ -17,11 +17,11 @@ const ProjectImage: FC<ProjectImageProps> = ({ project }) => {
     <div
       className={twJoin(
         'mx-auto w-10/12 overflow-hidden rounded shadow-xl sm:w-11/12 md:ml-0',
-        url &&
-          'duration-200 ease-in-out hover:scale-105 hover:bg-white hover:shadow-2xl'
+        url && 'duration-200 ease-in-out hover:scale-105 hover:shadow-2xl'
       )}
     >
       <Image
+        className='h-auto w-max object-cover'
         src={project.coverImage}
         title={project.title}
         alt={project.title}
@@ -30,13 +30,17 @@ const ProjectImage: FC<ProjectImageProps> = ({ project }) => {
         placeholder='blur'
         blurDataURL={project.coverImage}
         quality={25}
-        className='h-auto w-max object-cover'
       />
     </div>
   )
 
   return url ? (
-    <Link href={url} target='_blank' rel='noopener noreferrer'>
+    <Link
+      className='active:animate-ping'
+      href={url}
+      target='_blank'
+      rel='noopener noreferrer'
+    >
       <Img />
     </Link>
   ) : (
